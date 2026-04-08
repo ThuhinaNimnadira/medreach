@@ -8,8 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
-// ✅ Define notification type
+  
 type Notification = {
   id: number;
   title: string;
@@ -31,8 +30,7 @@ export default function Notifications() {
     yesterday: [],
     older: [],
   });
-
-  // 🔹 Placeholder: replace with Firebase Firestore later
+  
   const fetchNotifications = async () => {
     setNotifications({
       today: [
@@ -83,7 +81,7 @@ export default function Notifications() {
     <View style={styles.container}>
       <Text style={styles.header}>Notifications</Text>
 
-      {/* TOP BAR */}
+       
       <View style={styles.topBar}>
         <View style={styles.tabSelected}>
           <Text style={styles.tabTextSelected}>Today</Text>
@@ -105,18 +103,18 @@ export default function Notifications() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* TODAY */}
+         
         {notifications.today.map((item) => (
           <NotificationCard key={item.id} item={item} />
         ))}
 
-        {/* YESTERDAY */}
+         
         <Text style={styles.sectionLabel}>Yesterday</Text>
         {notifications.yesterday.map((item) => (
           <NotificationCard key={item.id} item={item} />
         ))}
 
-        {/* SPECIFIC DATE */}
+         
         <Text style={styles.dateLabel}>15 July</Text>
         {notifications.older.map((item) => (
           <NotificationCard key={item.id} item={item} />

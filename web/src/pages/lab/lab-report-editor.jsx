@@ -1,4 +1,4 @@
-// src/pages/lab/lab-report-editor.jsx
+  
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -93,7 +93,7 @@ export default function LabReportEditor() {
         .mint-border { border-color: rgba(74,222,128,.55); }
       `}</style>
 
-            {/* Header (fixed) */}
+             
             <header className="shrink-0 flex items-center justify-between px-10 py-3">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-9" />
@@ -116,13 +116,13 @@ export default function LabReportEditor() {
                 </div>
             </header>
 
-            {/* Main (fills remaining height) */}
+             
             <main className="flex-1 min-h-0 px-8 pb-6 pt-2">
                 <div className="h-full mx-auto max-w-[1200px] rounded-[22px] p-1 bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                     <div className="soft-glass h-full rounded-[18px] p-6 text-white">
-                        {/* Three fixed-height columns; only right content scrolls */}
+                         
                         <div className="grid h-full min-h-0 gap-5 grid-cols-1 lg:grid-cols-[300px_320px_1fr]">
-                            {/* LEFT: Patient */}
+                             
                             <section className="panel-glass rounded-2xl p-6 flex flex-col items-center justify-center">
                                 <div className="h-28 w-28 rounded-full overflow-hidden ring-2 ring-white/15">
                                     <img
@@ -142,7 +142,7 @@ export default function LabReportEditor() {
                                 )}
                             </section>
 
-                            {/* MIDDLE: Info */}
+                             
                             <section className="panel-glass rounded-2xl p-5">
                                 <div className="space-y-3">
                                     <div className="text-xl font-extrabold">info</div>
@@ -168,11 +168,11 @@ export default function LabReportEditor() {
                                 </div>
                             </section>
 
-                            {/* RIGHT: Report info (scrollable body) */}
+                             
                             <section className="panel-glass rounded-2xl p-5 flex flex-col min-h-0 overflow-hidden">
                                 <div className="text-2xl font-extrabold mb-2">Report info</div>
 
-                                {/* Small identifiers row */}
+                                 
                                 <div className="grid gap-3 grid-cols-1 md:grid-cols-3 mb-2">
                                     <input
                                         value={patientName}
@@ -197,9 +197,9 @@ export default function LabReportEditor() {
                                     />
                                 </div>
 
-                                {/* Scrollable content area */}
+                                 
                                 <div className="flex-1 min-h-0 overflow-auto pr-2 space-y-4">
-                                    {/* Notes */}
+                                     
                                     <div>
                                         <label className="block text-sm text-blue-100/90 mb-1">Notes</label>
                                         <textarea
@@ -212,7 +212,7 @@ export default function LabReportEditor() {
                                         />
                                     </div>
 
-                                    {/* Images */}
+                                     
                                     <div>
                                         <div className="flex items-center justify-between mb-1">
                                             <div className="text-sm text-blue-100/90">Images</div>
@@ -260,7 +260,7 @@ export default function LabReportEditor() {
                                     </div>
                                 </div>
 
-                                {/* Bottom action (fixed inside panel) */}
+                                 
                                 <div className="pt-3 flex justify-end">
                                     {!isIssued ? (
                                         <button

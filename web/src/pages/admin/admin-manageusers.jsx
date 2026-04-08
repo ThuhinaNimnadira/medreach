@@ -1,4 +1,4 @@
-// src/pages/admin/admin-manageusers.jsx
+  
 import { Bell } from "lucide-react";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -19,14 +19,12 @@ export default function AdminManageUsers() {
                 id: doc.id,
                 ...doc.data(),
             }));
-
-            // Separate patients and staff
+  
             const patientsData = data.filter((u) => u.role === "patient");
             const staffData = data.filter((u) => u.role === "staff");
             setPatients(patientsData);
             setStaff(staffData);
-
-            // New users (all roles) in last 3 days
+  
             const threeDaysAgo = new Date();
             threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
             const newUsers = data.filter(
@@ -42,7 +40,7 @@ export default function AdminManageUsers() {
         <div className="min-h-screen bg-gray-50 flex flex-col"
              style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4 ">
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
@@ -82,9 +80,9 @@ export default function AdminManageUsers() {
                 </div>
             </header>
 
-            {/* Main Content */}
+             
             <main className="flex flex-1 px-12 py-10 gap-8">
-                {/* Left sidebar card */}
+                 
                 <aside className="w-[255px] h-[273px]">
                     <h1 className="text-2xl font-semibold text-white ">manage <br /></h1>
                     <h1 className="text-[#ffffff] text-5xl font-bold mb-10">Users</h1>
@@ -102,9 +100,9 @@ export default function AdminManageUsers() {
                     </div>
                 </aside>
 
-                {/* Right side cards */}
+                 
                 <section className="flex-1 grid grid-cols-2 gap-8">
-                    {/* Manage Patients */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-15 flex flex-col justify-between w-[439px] h-[400px]">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
@@ -120,7 +118,7 @@ export default function AdminManageUsers() {
                         </Link>
                     </div>
 
-                    {/* Manage Staff */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-15 flex flex-col justify-between w-[439px] h-[400px]">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">

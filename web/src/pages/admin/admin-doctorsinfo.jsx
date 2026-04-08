@@ -1,8 +1,8 @@
-// src/pages/admin/admin-doctorsinfo.jsx
+  
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "../../firebase"; // your firebase.js
+import { db } from "../../firebase";
 
 const DEFAULT_AVATAR =
     "https://images.unsplash.com/photo-1606813907291-76a360fcd21d?q=80&w=400&auto=format&fit=crop";
@@ -50,8 +50,7 @@ export default function AdminDoctorsInfo() {
 
     const [doctor, setDoctor] = React.useState(null);
     const [loading, setLoading] = React.useState(true);
-
-    // Fetch doctor from Firestore
+  
     React.useEffect(() => {
         const fetchDoctor = async () => {
             setLoading(true);
@@ -78,8 +77,7 @@ export default function AdminDoctorsInfo() {
     React.useEffect(() => {
         if (doctor) setAppointments(doctor.appointments || []);
     }, [doctor]);
-
-    // Example: Change doctor role in Firestore
+  
     const handleChangeRole = async () => {
         const newRole = prompt("Enter new role:", doctor.role);
         if (!newRole) return;
@@ -93,8 +91,7 @@ export default function AdminDoctorsInfo() {
             alert("Failed to update role.");
         }
     };
-
-    // Delete doctor account (just a placeholder)
+  
     const handleDeleteAccount = () => {
         alert("Delete doctor account feature (implement Firestore deletion here).");
     };
@@ -109,7 +106,7 @@ export default function AdminDoctorsInfo() {
 
     return (
         <div className="h-screen w-screen overflow-hidden bg-white flex flex-col">
-            {/* Page-scoped scrollbar for appointments */}
+             
             <style>{`
         .med-scroll { scrollbar-width: thin; scrollbar-color: #ffffff rgba(255,255,255,0.22); }
         .med-scroll::-webkit-scrollbar { width: 10px; }
@@ -117,7 +114,7 @@ export default function AdminDoctorsInfo() {
         .med-scroll::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 9999px; border: 2px solid rgba(255,255,255,0.22); }
       `}</style>
 
-            {/* Navbar */}
+             
             <header className="shrink-0 flex items-center justify-between px-12 py-6">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-10" />
@@ -130,13 +127,13 @@ export default function AdminDoctorsInfo() {
                 </button>
             </header>
 
-            {/* Main container */}
+             
             <main className="flex-1 min-h-0 px-12 pb-8">
                 <div className="h-full w-full flex items-stretch justify-center">
                     <div className="h-full w-full max-w-[1200px] rounded-[28px] p-1 bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                         <div className="h-full rounded-[24px] bg-[#0f2139]/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] p-10">
                             <div className="grid h-full min-h-0 gap-8 lg:grid-cols-[minmax(0,1fr)_420px]">
-                                {/* LEFT: profile card */}
+                                 
                                 <div className="rounded-3xl bg-white/5 border border-white/10 p-10 text-white shadow-inner">
                                     <div className="flex flex-col items-start md:items-center md:text-center">
                                         <img
@@ -170,7 +167,7 @@ export default function AdminDoctorsInfo() {
                                     </div>
                                 </div>
 
-                                {/* RIGHT: appointments */}
+                                 
                                 <div className="rounded-3xl bg-white/5 border border-white/10 p-10 text-white shadow-inner flex min-h-0 flex-col">
                                     <h2 className="text-2xl md:text-[24px] font-semibold mb-4">
                                         Appointments
@@ -187,7 +184,7 @@ export default function AdminDoctorsInfo() {
                                         </div>
                                     </div>
                                 </div>
-                                {/* END RIGHT */}
+                                 
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-// src/data/lab-reports.store.js
+  
 const KEY = "lab_reports_v3";
 
 const AVATAR =
@@ -59,7 +59,7 @@ export function findReportByPublicId(publicId) {
     return loadReports().find((r) => r.publicId === publicId);
 }
 
-/** Called by the doctor’s “Request new” action */
+  
 export function requestLabReport({ patientName, phone, doctorName, testName, date }) {
     const list = loadReports();
     const id = `lr-${Date.now()}`;

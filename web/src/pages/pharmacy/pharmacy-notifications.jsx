@@ -1,4 +1,4 @@
-// src/pages/pharmacy/pharmacy-notifications.jsx
+  
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -94,7 +94,7 @@ export default function PharmacyNotifications() {
         <div className="min-h-screen "
              style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Navbar (compact) */}
+             
             <header className="flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -107,15 +107,15 @@ export default function PharmacyNotifications() {
                 </button>
             </header>
 
-            {/* Main card, same sizing/theme as other lists */}
+             
             <main className="px-6 md:px-10 pb-10 pt-10">
                 <div className="mx-auto max-w-[1040px] max-h-[560px] overflow-hidden rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.25)] flex flex-col">
-                    {/* Header row */}
+                     
                     <div className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
                         <h1 className="text-xl font-semibold">Notifications</h1>
 
                         <div className="flex flex-wrap items-center gap-3">
-                            {/* search */}
+                             
                             <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2">
                   <Magnifier />
@@ -128,7 +128,7 @@ export default function PharmacyNotifications() {
                                 />
                             </div>
 
-                            {/* sort */}
+                             
                             <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm">
                                 <label className="mr-1 text-gray-500">Sort by :</label>
                                 <select
@@ -142,7 +142,7 @@ export default function PharmacyNotifications() {
                                 </select>
                             </div>
 
-                            {/* mark all read */}
+                             
                             <button
                                 onClick={onMarkAll}
                                 className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm hover:bg-gray-100"
@@ -154,7 +154,7 @@ export default function PharmacyNotifications() {
 
                     <hr className="border-gray-200" />
 
-                    {/* List */}
+                     
                     <div className="flex-1 overflow-auto">
                         <ul className="divide-y divide-gray-200">
                             {pageData.map((n) => (
@@ -162,7 +162,7 @@ export default function PharmacyNotifications() {
                                     key={n.id}
                                     className="flex items-center gap-4 px-5 py-3"
                                 >
-                                    {/* unread dot */}
+                                     
                                     <div
                                         className={`h-2.5 w-2.5 rounded-full ${
                                             n.unread ? "bg-teal-500" : "bg-gray-300"
@@ -170,7 +170,7 @@ export default function PharmacyNotifications() {
                                         title={n.unread ? "Unread" : "Read"}
                                     />
 
-                                    {/* title/message */}
+                                     
                                     <div className="flex-1">
                                         <div className="text-[15px] text-gray-900 font-medium">
                                             {n.title}
@@ -180,12 +180,12 @@ export default function PharmacyNotifications() {
                                         </div>
                                     </div>
 
-                                    {/* date */}
+                                     
                                     <div className="w-40 text-[13px] text-gray-600">
                                         {new Date(n.createdAt).toLocaleString()}
                                     </div>
 
-                                    {/* actions */}
+                                     
                                     <div className="flex items-center gap-2">
                                         <button
                                             onClick={() => onOpen(n)}
@@ -220,7 +220,7 @@ export default function PharmacyNotifications() {
                         </ul>
                     </div>
 
-                    {/* Footer: pager */}
+                     
                     <div className="flex items-center justify-end gap-2 px-5 py-4">
                         <button
                             className="rounded-md border border-gray-300 px-2.5 py-1 text-gray-600 disabled:opacity-40"

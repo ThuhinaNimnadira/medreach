@@ -1,4 +1,4 @@
-// app/appointmentsStore.ts
+  
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -11,8 +11,7 @@ export type Appointment = {
 };
 
 const STORAGE_KEY = "appointments_v1";
-
-// in-memory cache
+  
 let appointments: Appointment[] = [];
 const listeners = new Set<(apps: Appointment[]) => void>();
 let hasLoadedFromStorage = false;

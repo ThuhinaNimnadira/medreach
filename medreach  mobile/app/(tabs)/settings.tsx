@@ -20,7 +20,7 @@ export default function Index() {
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
-        <Pressable style={styles.headerLeft} onPress={() => { /* go back */ }}>
+        <Pressable style={styles.headerLeft} onPress={() => {    }}>
           <Ionicons name="chevron-back-outline" size={26} color="#222" />
         </Pressable>
         <Text style={styles.headerTitle}>Settings</Text>
@@ -50,7 +50,7 @@ export default function Index() {
           title="Password"
           subtitle="Update your password"
           onPress={() => {
-            /* navigate to password screen */
+              
           }}
         />
 
@@ -60,7 +60,7 @@ export default function Index() {
           title="Need Help?"
           subtitle="Contact our support center"
           onPress={() => {
-            /* navigate to support */
+              
           }}
         />
 
@@ -72,7 +72,7 @@ export default function Index() {
           color="#E53935"
           icon={<Feather name="log-out" size={18} color="#E53935" />}
           onPress={() => {
-            /* log out action */
+              
           }}
         />
 
@@ -84,7 +84,7 @@ export default function Index() {
           color="#E53935"
           icon={<Feather name="trash-2" size={18} color="#E53935" />}
           onPress={() => {
-            /* delete account action */
+              
           }}
         />
       </ScrollView>

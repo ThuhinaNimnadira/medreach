@@ -45,9 +45,9 @@ export default function ReceptionAppointmentPay() {
     }
 
     return (
-        // lock viewport; no page scroll
+  
         <div className="h-screen bg-gray-50 text-white flex flex-col overflow-hidden">
-            {/* Top bar */}
+             
             <header className="shrink-0 flex items-center justify-between px-12 py-6">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-10" />
@@ -60,13 +60,13 @@ export default function ReceptionAppointmentPay() {
                 </button>
             </header>
 
-            {/* Main glass container fits remaining height exactly */}
+             
             <main className="flex-1 min-h-0 px-8 md:px-12 pb-8">
                 <div className="h-full max-w-[1200px] mx-auto rounded-[28px] p-[4px] bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                     <div className="h-full rounded-[24px] bg-[#0f2139]/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] p-6 md:p-8">
-                        {/* 3 columns, each constrained to fit the card height */}
+                         
                         <div className="grid h-full min-h-0 gap-6 lg:grid-cols-[340px_minmax(0,1fr)_360px]">
-                            {/* LEFT: patient card */}
+                             
                             <section className="rounded-3xl bg-white/6 border border-white/10 p-8 flex flex-col items-center justify-center min-h-0">
                                 <div className="h-36 w-36 rounded-full overflow-hidden ring-2 ring-white/15">
                                     <img
@@ -86,11 +86,11 @@ export default function ReceptionAppointmentPay() {
                                 </div>
                             </section>
 
-                            {/* MIDDLE: info + chips */}
+                             
                             <section className="rounded-3xl bg-white/6 border border-white/10 p-6 flex flex-col min-h-0">
                                 <h3 className="text-[28px] font-extrabold mb-4">info</h3>
 
-                                {/* Appointment info grid */}
+                                 
                                 <div className="space-y-1 text-blue-100/90">
                                     <div className="uppercase tracking-wide text-[12px] text-blue-200/80">
                                         appointment info
@@ -110,7 +110,7 @@ export default function ReceptionAppointmentPay() {
                                     </div>
                                 </div>
 
-                                {/* Chips */}
+                                 
                                 <div className="mt-6">
                                     <div className="uppercase tracking-wide text-[12px] text-blue-200/80 mb-3">
                                         reports &amp; prescriptions
@@ -133,7 +133,7 @@ export default function ReceptionAppointmentPay() {
                                 </div>
                             </section>
 
-                            {/* RIGHT: total payable */}
+                             
                             <section className="rounded-3xl bg-white/6 border border-white/10 p-6 flex flex-col min-h-0">
                                 <h3 className="text-[28px] font-extrabold mb-4">Total payable</h3>
 

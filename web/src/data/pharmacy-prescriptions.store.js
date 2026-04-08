@@ -1,5 +1,5 @@
-// src/data/pharmacy-prescriptions.store.js
-// Local store for pharmacy prescriptions (demo) aligned with our other mock DBs.
+  
+  
 
 const LS_KEY = "pharmacy_prescriptions_v2"; // bump key to reseed with the new schema
 const AVATAR =
@@ -10,7 +10,7 @@ function seed() {
     const daysAgo = (d) => now - d * 24 * 60 * 60 * 1000;
 
     const out = [];
-    // 20 demo rows, alternating status like our appointments mock
+  
     for (let i = 1; i <= 20; i++) {
         const status = i % 2 === 0 ? "new" : "issued"; // alternate for the UI
         const createdAt = daysAgo(i);
@@ -45,11 +45,11 @@ function writeRaw(list) {
     try {
         localStorage.setItem(LS_KEY, JSON.stringify(list));
     } catch {
-        // ignore write failures in demo
+  
     }
 }
 
-/* --------------------------------- API ---------------------------------- */
+  
 
 export function loadPrescriptions() {
     let list = readRaw();
@@ -57,7 +57,7 @@ export function loadPrescriptions() {
         list = seed();
         writeRaw(list);
     }
-    // normalize numeric timestamps
+  
     return list.map((p) => ({
         ...p,
         createdAt: Number(p.createdAt ?? Date.now()),
@@ -69,7 +69,7 @@ export function savePrescriptions(list) {
     writeRaw(list);
 }
 
-/** Create a new prescription (defaults to "new") */
+  
 export function addPrescription(data = {}) {
     const list = loadPrescriptions();
     const id = `rx-${Math.random().toString(36).slice(2, 8)}`;
@@ -101,7 +101,7 @@ export function addPrescription(data = {}) {
     return item;
 }
 
-/** Patch/update by id */
+  
 export function updatePrescription(id, patch) {
     const list = loadPrescriptions();
     const idx = list.findIndex((p) => p.id === id);
@@ -117,7 +117,7 @@ export function updatePrescription(id, patch) {
             }
             if (next.issuedAt == null) next.issuedAt = Date.now();
         } else {
-            // going back to "new"
+  
             next.issuedAt = null;
             next.publicId = null;
         }
@@ -128,7 +128,7 @@ export function updatePrescription(id, patch) {
     return next;
 }
 
-/** Convenience getters */
+  
 export function getPrescriptionById(id) {
     return loadPrescriptions().find((p) => p.id === id) || null;
 }

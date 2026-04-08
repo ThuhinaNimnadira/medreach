@@ -1,4 +1,4 @@
-// Simple local receipt store keyed by appointment id
+  
 const LS_KEY = "reception_payments_v1";
 
 function readDB() {

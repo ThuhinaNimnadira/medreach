@@ -23,8 +23,7 @@ export default function DoctorNotifications() {
     const perPage = 6;
 
     const userId = auth.currentUser?.uid;
-
-    // Load notifications from Firestore
+  
     React.useEffect(() => {
         if (!userId) return;
         const loadNotifications = async () => {
@@ -82,7 +81,7 @@ export default function DoctorNotifications() {
     return (
         <div className="h-screen w-screen overflow-hidden bg-white flex flex-col"
              style={{ backgroundImage: `url(${bg})` }}>
-            {/* page chrome */}
+             
             <header className="flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -139,7 +138,7 @@ export default function DoctorNotifications() {
                         </ul>
                     </div>
 
-                    {/* Pager component stays the same */}
+                     
                 </div>
             </main>
         </div>

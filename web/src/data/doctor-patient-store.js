@@ -74,7 +74,7 @@ export const completeLab = (pid, labId, resultToReport) => {
     if (lab) {
         lab.status = "completed";
         saveRecord(pid, rec);
-        // When lab is completed we also drop a new report for the patient
+  
         if (resultToReport) {
             addReport(pid, {
                 title: lab.title,

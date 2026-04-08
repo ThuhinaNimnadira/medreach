@@ -8,7 +8,7 @@ export default function About() {
             className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${bg})` }}
         >
-            <Navbar /> {/* Add Navbar here */}
+            <Navbar />  
 
             <div
                 className="
@@ -22,10 +22,10 @@ export default function About() {
                 }}
             >
 
-            {/* Inner container with left glass, logo, right glass */}
+             
                 <div className="flex w-full max-w-6xl justify-between items-center gap-4 px-4">
 
-                    {/* Left glass-like div */}
+                     
                     <div className="flex-1 max-w-[30%] h-[90%] flex flex-col bg-white/10 backdrop-blur-lg border border-white/30 rounded-2xl shadow-lg p-6 text-left">
                         <h1 className="font-poppins font-bold text-2xl text-white mb-3">About Us</h1>
                         <p className="text-white text-xs">
@@ -35,12 +35,12 @@ export default function About() {
                         </p>
                     </div>
 
-                    {/* Center logo */}
+                     
                     <div className="flex-shrink-0">
                         <img src="6.png" alt="Logo" className="h-92 w-auto" />
                     </div>
 
-                    {/* Right glass-like div */}
+                     
                     <div className="flex-1 max-w-[30%] h-[90%] flex flex-col bg-white/10 backdrop-blur-lg border border-white/30 rounded-2xl shadow-lg p-6 text-left">
                         <h1 className="font-poppins font-bold text-2xl text-white mb-3">Our Edge</h1>
                         <p className="text-white text-xs">

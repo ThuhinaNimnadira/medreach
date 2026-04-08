@@ -1,10 +1,9 @@
-// src/pages/admin/admin-patientinfo.jsx
+  
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase"; // adjust path
-
-// ---------- tiny icons ----------
+  
 const EyeIcon = ({ className = "h-4 w-4" }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
         <path d="M12 5C6.5 5 2 12 2 12s4.5 7 10 7 10-7 10-7-4.5-7-10-7Zm0 11a4 4 0 1 1 .001-8.001A4 4 0 0 1 12 16Z" />
@@ -15,8 +14,7 @@ const TrashIcon = ({ className = "h-4 w-4" }) => (
         <path d="M9 3h6a1 1 0 0 1 1 1v1h4v2H4V5h4V4a1 1 0 0 1 1-1m1 5h2v10h-2V8m4 0h2v10h-2V8M8 8h2v10H8V8Z" />
     </svg>
 );
-
-// ---------- small cards ----------
+  
 function ReportCard({ r, onView, onDelete }) {
     return (
         <div className="relative rounded-2xl bg-blue-900/30 border border-white/10 px-5 py-4">
@@ -68,7 +66,7 @@ export default function AdminPatientInfo() {
             setReports(p.reports || []);
             setAppts(p.appointments || []);
         } else {
-            // Fetch from Firestore
+  
             const fetchPatient = async () => {
                 const docRef = doc(db, "users", id);
                 const docSnap = await getDoc(docRef);
@@ -122,7 +120,7 @@ export default function AdminPatientInfo() {
                 <div className="h-full rounded-[28px] p-1 bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                     <div className="h-full rounded-[24px] bg-[#0f2139]/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] p-6 md:p-10">
                         <div className="grid h-full min-h-0 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)_minmax(0,0.95fr)]">
-                            {/* LEFT: Profile */}
+                             
                             <div className="rounded-3xl bg-white/5 border border-white/10 p-10 text-white shadow-inner flex flex-col items-center justify-center">
                                 <img
                                     src={patient.avatar}
@@ -136,7 +134,7 @@ export default function AdminPatientInfo() {
                                 </div>
                             </div>
 
-                            {/* MIDDLE: Reports */}
+                             
                             <div className="rounded-3xl bg-white/5 border border-white/10 p-6 text-white shadow-inner flex min-h-0 flex-col">
                                 <h2 className="text-2xl md:text-[24px] font-semibold mb-4">Reports</h2>
                                 <div className="med-scroll flex-1 overflow-y-auto pr-3">
@@ -152,7 +150,7 @@ export default function AdminPatientInfo() {
                                 </div>
                             </div>
 
-                            {/* RIGHT: Appointments */}
+                             
                             <div className="rounded-3xl bg-white/5 border border-white/10 p-6 text-white shadow-inner flex min-h-0 flex-col">
                                 <h2 className="text-2xl md:text-[24px] font-semibold mb-4">Appointments</h2>
                                 <div className="med-scroll flex-1 overflow-y-auto pr-3">
@@ -163,7 +161,7 @@ export default function AdminPatientInfo() {
                                     )}
                                 </div>
                             </div>
-                            {/* END RIGHT */}
+                             
                         </div>
                     </div>
                 </div>

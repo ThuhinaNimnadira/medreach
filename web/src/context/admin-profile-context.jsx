@@ -1,9 +1,8 @@
-// src/context/admin-profile-context.jsx
+  
 import React from "react";
 
 const Ctx = React.createContext(null);
-
-// ONLY the signed-in admin's profile (local stub for now)
+  
 const DEFAULT = {
     name: "Admin User",
     email: "admin@example.com",

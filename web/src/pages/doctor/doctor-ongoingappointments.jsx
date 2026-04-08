@@ -1,4 +1,4 @@
-// src/pages/doctor/doctor-ongoingappointments.jsx
+  
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { db } from "../../firebase";
@@ -12,8 +12,7 @@ import {
     deleteDoc,
     serverTimestamp,
 } from "firebase/firestore";
-
-// Small icons (unchanged)
+  
 const Eye = () => (
     <svg viewBox="0 0 24 24" className="h-4 w-4">
         <path
@@ -77,8 +76,7 @@ export default function DoctorOngoingAppointment() {
     });
 
     const [viewing, setViewing] = React.useState(null);
-
-    // Fetch appointment from Firestore
+  
     React.useEffect(() => {
         async function fetchAppt() {
             if (state?.appt) {
@@ -100,8 +98,7 @@ export default function DoctorOngoingAppointment() {
         }
         fetchAppt();
     }, [id, state]);
-
-    // Listen to reports
+  
     React.useEffect(() => {
         if (!appt) return;
         const reportsRef = collection(db, "appointments", appt.id, "reports");
@@ -110,8 +107,7 @@ export default function DoctorOngoingAppointment() {
         });
         return () => unsub();
     }, [appt]);
-
-    // Listen to labs
+  
     React.useEffect(() => {
         if (!appt) return;
         const labsRef = collection(db, "appointments", appt.id, "labs");
@@ -177,11 +173,10 @@ export default function DoctorOngoingAppointment() {
 
     if (loading) return <div>Loading...</div>;
     if (!appt) return <div>Appointment not found</div>;
-
-    // The JSX below is **exactly your original UI**, unchanged
+  
     return (
         <div className="min-h-screen bg-[#F5F6F8]">
-            {/* top bar */}
+             
             <header className="flex items-center justify-between px-10 py-5">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-10" />
@@ -194,12 +189,12 @@ export default function DoctorOngoingAppointment() {
                 </button>
             </header>
 
-            {/* top two cards */}
+             
             <div className="grid gap-6 md:grid-cols-[minmax(0,520px)_minmax(0,1fr)] px-6 md:px-10">
-                {/* Left: patient + previous reports (glass-ish) */}
+                 
                 <div className="rounded-2xl p-5 bg-gradient-to-br from-sky-800/60 via-blue-900/70 to-[#0d1b2a]">
                     <div className="rounded-xl p-5 bg-white/8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] flex gap-5">
-                        {/* patient card */}
+                         
                         <div className="min-w-[210px] max-w-[210px] rounded-xl bg-white/6 border border-white/10 p-5 text-white flex flex-col items-center">
                             <div className="h-28 w-28 rounded-full overflow-hidden">
                                 <img src={appt.avatar} alt={appt.patient} className="h-full w-full object-cover" />
@@ -209,7 +204,7 @@ export default function DoctorOngoingAppointment() {
                             <div className="text-sm text-slate-300 text-center">{appt.email}</div>
                         </div>
 
-                        {/* previous reports list */}
+                         
                         <div className="flex-1 rounded-xl bg-white/6 border border-white/10 p-5 text-white flex flex-col">
                             <div className="text-lg font-semibold mb-3">Previous Reports</div>
                             <div className="flex-1 overflow-y-auto pr-2 space-y-3">
@@ -248,7 +243,7 @@ export default function DoctorOngoingAppointment() {
                     </div>
                 </div>
 
-                {/* Right: lab reports & request new */}
+                 
                 <div className="rounded-2xl bg-white shadow-md p-6">
                     <h3 className="text-xl font-bold text-[#0C164F]">Lab reports & Tests</h3>
                     <div className="mt-4 space-y-3">
@@ -316,7 +311,7 @@ export default function DoctorOngoingAppointment() {
                 </div>
             </div>
 
-            {/* bottom: new report form */}
+             
             <div className="px-6 md:px-10 mt-8">
                 <div className="rounded-2xl bg-white shadow-md p-6">
                     <h3 className="text-xl font-bold text-[#0C164F]">Report</h3>
@@ -339,7 +334,7 @@ export default function DoctorOngoingAppointment() {
                 </div>
             </div>
 
-            {/* simple modal for viewing a report */}
+             
             {viewing && (
                 <div className="fixed inset-0 bg-black/40 grid place-items-center p-4 z-50">
                     <div className="w-full max-w-2xl rounded-2xl bg-white p-6">

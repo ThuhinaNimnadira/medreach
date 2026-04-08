@@ -34,8 +34,7 @@ export default function Login() {
 
   const onLogin = () => {
     if (!validate()) return;
-
-    // Hardcoded login check
+  
     if (email !== "abc@gmail.com" || password !== "123456") {
       setErrors({ password: "Invalid username or password" });
       return;
@@ -58,13 +57,13 @@ export default function Login() {
           contentContainerStyle={styles.scroll}
           keyboardShouldPersistTaps="handled"
         >
-          {/* Top bar with back chevrons */}
+           
           <View style={styles.topRow}>
             <Pressable onPress={() => router.back()} hitSlop={12}>
               <Ionicons name="chevron-back" size={24} color="#0F172A" />
             </Pressable>
 
-            {/* Brand (text version so no image asset needed) */}
+             
             <View style={styles.logoRow}>
               <Text style={styles.logoMed}>MED</Text>
               <Text style={styles.logoReach}>REACH</Text>
@@ -112,7 +111,7 @@ export default function Login() {
               <Text style={styles.forgot}>Forgot password?</Text>
             </Pressable>
 
-            {/* Sign In */}
+             
             <Pressable
               onPress={onLogin}
               disabled={loading}
@@ -130,7 +129,7 @@ export default function Login() {
             </Pressable>
           </View>
 
-          {/* Footer */}
+           
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don’t have an account? </Text>
             <Pressable onPress={() => { }}>

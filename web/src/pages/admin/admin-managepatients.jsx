@@ -1,11 +1,11 @@
-// src/pages/admin/admin-managepatients.jsx
+  
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, onSnapshot, query, where, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png"; // adjust path
-// ---- Small UI bits ----
+  
 function InfoIcon() {
     return (
         <span className="inline-flex items-center justify-center h-7 w-7 rounded-full border-2 border-[#0E1A33] text-[#0E1A33] font-semibold">
@@ -44,8 +44,7 @@ export default function AdminManagePatients() {
     const [sort, setSort] = React.useState("name-asc");
     const [page, setPage] = React.useState(1);
     const perPage = 5;
-
-    // fetch patients from users collection where role == 'patient'
+  
     React.useEffect(() => {
         const qRef = query(collection(db, "users"), where("role", "==", "patient"));
         const unsub = onSnapshot(
@@ -65,8 +64,7 @@ export default function AdminManagePatients() {
         );
         return () => unsub();
     }, []);
-
-    // derived: search + sort
+  
     const filtered = React.useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = patients.filter(

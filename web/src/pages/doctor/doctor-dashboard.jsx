@@ -1,4 +1,4 @@
-// src/pages/doctor/doctor-dashboard.jsx
+  
 import React, { useEffect, useState } from "react";
 import { Bell } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -42,8 +42,7 @@ export default function DoctorDashboard() {
                 const q = query(collection(db, "appointments"), where("staffId", "==", user.uid));
                 const snapshot = await getDocs(q);
                 const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-
-                // Separate completed and upcoming
+  
                 const completedAppts = data.filter((a) => a.status === "completed");
                 const upcomingAppts = data.filter((a) => a.status !== "completed");
 
@@ -85,7 +84,7 @@ export default function DoctorDashboard() {
         .docs-scroll::-webkit-scrollbar-thumb { background: #0C164F; border-radius: 9999px; }
       `}</style>
 
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4 shrink-0">
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
@@ -123,9 +122,9 @@ export default function DoctorDashboard() {
                 </div>
             </header>
 
-            {/* Main Content */}
+             
             <main className="flex flex-1 min-h-0 px-12 py-10 gap-8 pt-15">
-                {/* Left column */}
+                 
                 <aside className="w-[255px] h-[273px]">
                     <h1 className="text-2xl text-white font-bold mb-2">
                         Hello,
@@ -148,9 +147,9 @@ export default function DoctorDashboard() {
                     </div>
                 </aside>
 
-                {/* Middle + Right cards */}
+                 
                 <section className="flex-1 grid grid-cols-2 gap-8 min-h-0">
-                    {/* My appointments */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-10 flex flex-col justify-between w-[439px] h-[400px] hover:text-white hover:scale-105 transition-all duration-300">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
@@ -168,7 +167,7 @@ export default function DoctorDashboard() {
                         </Link>
                     </div>
 
-                    {/* Take a look back — list scrolls only */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-10 w-[439px] h-[400px] flex flex-col overflow-hidden">
                         <div className="shrink-0">
                             <h3 className="text-3xl font-bold mb-2 text-[#0C164F]">Take a look back</h3>

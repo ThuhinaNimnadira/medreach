@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 
-// --- Admin pages
 import AdminDashboard from "./pages/admin/admindashboard";
 import AdminManageUsers from "./pages/admin/admin-manageusers.jsx";
 import ManageHealthGuide from "./pages/admin/admin-manageofflineguides.jsx";
@@ -19,19 +18,19 @@ import AdminPatientInfo from "./pages/admin/admin-patientinfo.jsx";
 import AdminStaffInfo from "./pages/admin/admin-staffinfo.jsx";
 import AdminSettings from "./pages/admin/admin-settings.jsx";
 
-// --- Admin-only profile scope
+
 import { AdminProfileProvider } from "./context/admin-profile-context.jsx";
 
-// --- Doctor pages
+
 import DoctorDashboard from "./pages/doctor/doctor-dashboard.jsx";
 import DoctorNotifications from "./pages/doctor/doctor-notifications.jsx";
 import DoctorAppointments from "./pages/doctor/doctor-appointments.jsx";
-import DoctorProfile from "./pages/doctor/doctor-profile.jsx"; // ✅ fixed filename
+import DoctorProfile from "./pages/doctor/doctor-profile.jsx";
 import DoctorCompletedAppointment from "./pages/doctor/doctor-completedappointments.jsx";
 import DoctorOngoingAppointment from "./pages/doctor/doctor-ongoingappointments.jsx";
 import DoctorSettings from "./pages/doctor/doctor-settings.jsx";
 
-// Lab
+
 import LabDashboard from "./pages/lab/lab-dashboard.jsx";
 import LabReports from "./pages/lab/lab-reports.jsx";
 import LabReportEditor from "./pages/lab/lab-report-editor.jsx";
@@ -39,7 +38,7 @@ import LabReportPublic from "./pages/lab/lab-report-public.jsx";
 import LabSettings from "./pages/lab/lab-settings.jsx";
 import LabNotifications from "./pages/lab/lab-notifications.jsx";
 
-//Pharmacy
+
 import PharmacyDashboard from "./pages/pharmacy/pharmacy-dashboard.jsx";
 import PharmacySettings from "./pages/pharmacy/pharmacy-settings.jsx";
 import PharmacyPrescriptions from "./pages/pharmacy/pharmacy-prescriptions.jsx";
@@ -47,7 +46,7 @@ import PharmacyPrescriptionEditor from "./pages/pharmacy/pharmacy-prescription-e
 import PharmacyNotifications from "./pages/pharmacy/pharmacy-notifications.jsx";
 import PrescriptionIssued from "./pages/pharmacy/prescription-issued.jsx";
 
-//Receptionist
+
 import ReceptionDashboard from "./pages/receptionist/receptionist-dashboard.jsx";
 import ReceptionNotifications from "./pages/receptionist/receptionist-notifications.jsx";
 import ReceptionAppointments from "./pages/receptionist/receptionist-appointments.jsx";
@@ -67,7 +66,7 @@ function NotFound() {
     );
 }
 
-// Wrap ONLY admin routes so settings updates affect just the signed-in admin
+
 function AdminLayout() {
     return (
         <AdminProfileProvider>
@@ -76,20 +75,20 @@ function AdminLayout() {
     );
 }
 
-/* ------------------------------------------------------------------------------ */
+
 
 export default function App() {
     return (
         <Router>
             <div className="min-h-screen bg-white flex flex-col">
                 <Routes>
-                    {/* public */}
+                     
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login />} />
 
-                    {/* admin (scoped context) */}
+                     
                     <Route path="/admin" element={<AdminLayout />}>
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="manageusers" element={<AdminManageUsers />} />
@@ -104,16 +103,16 @@ export default function App() {
                         <Route path="staff/:id" element={<AdminStaffInfo />} />
                     </Route>
 
-                    {/* doctor */}
+                     
                     <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
                     <Route path="/doctor/appointments" element={<DoctorAppointments />} />
                     <Route path="/doctor/appointments/completed/:id" element={<DoctorCompletedAppointment />} />
-                    <Route path="/doctor/appointments/ongoing/:id" element={<DoctorOngoingAppointment />} /> {/* ✅ fixed prefix */}
+                    <Route path="/doctor/appointments/ongoing/:id" element={<DoctorOngoingAppointment />} />  
                     <Route path="/doctor/profile" element={<DoctorProfile />} />
                     <Route path="/doctor/notifications" element={<DoctorNotifications />} />
                     <Route path="/doctor/settings" element={<DoctorSettings />} />
 
-                    {/* lab */}
+                     
                     <Route path="/lab/dashboard" element={<LabDashboard />} />
                     <Route path="/lab/reports" element={<LabReports />} />
                     <Route path="/lab/reports/new" element={<LabReportEditor />} />
@@ -122,7 +121,7 @@ export default function App() {
                     <Route path="/report/:slug" element={<LabReportPublic />} />
                     <Route path="/lab/notifications" element={<LabNotifications />} />
 
-                    {/*Pharmacy*/}
+                     
                     <Route path="/pharmacy/dashboard" element={<PharmacyDashboard />} />
                     <Route path="/pharmacy/settings" element={<PharmacySettings />} />
                     <Route path="/pharmacy/prescriptions" element={<PharmacyPrescriptions />} />
@@ -130,7 +129,7 @@ export default function App() {
                     <Route path="/pharmacy/notifications" element={<PharmacyNotifications />} />
                     <Route path="/prescription/:slug" element={<PrescriptionIssued />} />
 
-                    {/*Receptionist*/}
+                     
                     <Route path="/reception/dashboard" element={<ReceptionDashboard />} />
                     <Route path="reception/notifications" element={<ReceptionNotifications />} />
                     <Route path="/reception/appointments" element={<ReceptionAppointments />} />
@@ -139,7 +138,7 @@ export default function App() {
                     <Route path="/reception/settings" element={<ReceptionSettings />} />
 
 
-                    {/* fallback */}
+                     
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>

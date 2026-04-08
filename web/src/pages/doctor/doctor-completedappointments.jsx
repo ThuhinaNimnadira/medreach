@@ -1,4 +1,4 @@
-// src/pages/doctor/doctor-completedappointment.jsx
+  
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { db } from "../../firebase";
@@ -88,7 +88,7 @@ export default function DoctorCompletedAppointment() {
             className="h-screen w-screen overflow-hidden bg-white flex flex-col"
             style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* page chrome */}
+             
             <header className="flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -102,14 +102,14 @@ export default function DoctorCompletedAppointment() {
                 </button>
             </header>
 
-            {/* main glass container */}
+             
             <main className="flex-1 min-h-0 px-12 pb-8">
                 <div className="h-full w-full flex items-stretch justify-center">
                     <div className="h-full w-full max-w-[1200px] rounded-[28px] p-1 bg-gradient-to-br from-white-800/70 via-white-900/70 to-[#ffffff]">
                         <div className="h-full rounded-[24px] bg-[#0f2139]/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] p-8 text-white">
-                            {/* 3 columns */}
+                             
                             <div className="grid h-full min-h-0 gap-6 grid-cols-1 lg:grid-cols-[340px_320px_1fr]">
-                                {/* LEFT: patient card */}
+                                 
                                 <section className="rounded-3xl bg-white/6 border border-white/10 p-8 flex flex-col items-center justify-center">
                                     <div className="h-32 w-32 rounded-full overflow-hidden ring-2 ring-white/15">
                                         <img
@@ -126,11 +126,11 @@ export default function DoctorCompletedAppointment() {
                                     <div className="text-slate-300 text-center">{appt.email}</div>
                                 </section>
 
-                                {/* MIDDLE: report + info */}
+                                 
                                 <section className="rounded-3xl bg-white/6 border border-white/10 p-6 flex flex-col">
                                     <h3 className="text-2xl font-extrabold mb-4">Report</h3>
 
-                                    {/* small report tile */}
+                                     
                                     <div className="rounded-2xl bg-blue-900/40 border border-white/10 px-5 py-4 mb-6">
                                         <div className="text-[11px] tracking-wide text-blue-200/90">
                                             {appt.date}
@@ -141,7 +141,7 @@ export default function DoctorCompletedAppointment() {
                                         <div className="mt-1 flex items-center justify-between text-sm text-blue-200/80">
                                             <span>{appt.doctorName}</span>
                                             <div className="flex items-center gap-3 text-blue-100/80">
-                                                {/* eye + trash (UI only) */}
+                                                 
                                                 <svg viewBox="0 0 24 24" className="h-5 w-5">
                                                     <path
                                                         fill="currentColor"
@@ -158,7 +158,7 @@ export default function DoctorCompletedAppointment() {
                                         </div>
                                     </div>
 
-                                    {/* info */}
+                                     
                                     <div>
                                         <h4 className="text-xl font-extrabold mb-3">info</h4>
                                         <div className="space-y-2 text-blue-100/90">
@@ -169,7 +169,7 @@ export default function DoctorCompletedAppointment() {
                                     </div>
                                 </section>
 
-                                {/* RIGHT: reviews */}
+                                 
                                 <section className="rounded-3xl bg-white/6 border border-white/10 p-6 flex flex-col">
                                     <h3 className="text-3xl font-extrabold mb-4">Reviews</h3>
                                     <StarRow />

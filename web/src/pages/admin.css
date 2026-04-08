@@ -13,5 +13,5 @@
 
 .bell-hover:hover {
     animation: ring 0.6s ease-in-out;
-    transform-origin: top center; /* makes it pivot from the top */
+    transform-origin: top center;
 }

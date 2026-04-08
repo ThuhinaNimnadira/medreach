@@ -17,14 +17,14 @@ export default function Profile() {
     const [about, setAbout] = useState("");
 
     const onSave = () => {
-        // TODO: wire to backend later
+  
         router.back(); // or keep the user here
     };
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
             <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-                {/* Top bar */}
+                 
                 <View style={styles.topRow}>
                     <Pressable onPress={() => router.back()} hitSlop={8}>
                         <Text style={styles.back}>{`«`}</Text>
@@ -33,7 +33,7 @@ export default function Profile() {
                     <View style={{ width: 24 }} />
                 </View>
 
-                {/* Avatar */}
+                 
                 <View style={styles.avatarBlock}>
                     <View style={styles.avatar} />
                     <Pressable style={styles.editBadge}>
@@ -42,7 +42,7 @@ export default function Profile() {
                     <Text style={styles.userLabel}>User</Text>
                 </View>
 
-                {/* Form */}
+                 
                 <View style={styles.form}>
                     <Text style={styles.label}>User name</Text>
                     <View style={styles.inputWrap}>
@@ -99,7 +99,7 @@ export default function Profile() {
                     </View>
                 </View>
 
-                {/* Save button */}
+                 
                 <Pressable onPress={onSave} style={({ pressed }) => [styles.saveBtn, pressed && { opacity: 0.9 }]}>
                     <Text style={styles.saveTxt}>Save</Text>
                 </Pressable>
@@ -108,7 +108,7 @@ export default function Profile() {
     );
 }
 
-/* palette tuned to your screenshot */
+  
 const NAVY = "#0B1B3A";
 const BORDER = "#EFEFF4";
 const MUTED = "#6B7280";

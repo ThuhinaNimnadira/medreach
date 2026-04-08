@@ -1,12 +1,11 @@
-// src/pages/admin/admin-manageofflineguides.jsx
+  
 import React, { useEffect, useState } from "react";
 import { Bell } from "lucide-react";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
-
-// Firestore functions
+  
 const loadTopics = async () => {
     const snap = await db.collection("offlineGuides").get();
     return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
@@ -31,8 +30,7 @@ export default function ManageOfflineGuides() {
     const [topics, setTopics] = useState([]);
     const [selectedTopic, setSelectedTopic] = useState(null);
     const [search, setSearch] = useState("");
-
-    // Load topics from Firestore on mount
+  
     useEffect(() => {
         const fetchTopics = async () => {
             const data = await loadTopics();
@@ -41,8 +39,7 @@ export default function ManageOfflineGuides() {
         };
         fetchTopics();
     }, []);
-
-    // --- Topic CRUD ---
+  
     const handleAddTopic = async () => {
         const name = prompt("Enter new topic name:");
         if (!name) return;
@@ -69,8 +66,7 @@ export default function ManageOfflineGuides() {
         setTopics(updatedTopics);
         if (selectedTopic?.id === topic.id) setSelectedTopic(updatedTopics[0] || null);
     };
-
-    // --- Document CRUD ---
+  
     const handleAddDoc = async () => {
         if (!selectedTopic) return;
         const file = prompt("Enter document name (e.g., file.pdf):");
@@ -113,7 +109,7 @@ export default function ManageOfflineGuides() {
              style={{ backgroundImage: `url(${bg})` }}
         >
 
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4 shrink-0">
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
@@ -151,10 +147,10 @@ export default function ManageOfflineGuides() {
                 </div>
             </header>
 
-            {/* Main Content */}
+             
             <div className="flex-1 min-h-0 px-12 py-8">
                 <div className="h-full grid grid-cols-[260px_1fr] gap-8">
-                    {/* LEFT: Topics */}
+                     
                     <div className="min-h-0">
                         <div className="mb-4">
                             <p className="text-sm text-white font-medium">Manage</p>
@@ -200,7 +196,7 @@ export default function ManageOfflineGuides() {
                         </div>
                     </div>
 
-                    {/* RIGHT: Documents */}
+                     
                     <div className="min-h-0 bg-white rounded-2xl shadow-md p-6 flex flex-col overflow-hidden">
                         {!selectedTopic ? (
                             <p className="text-gray-400 text-center m-auto">

@@ -1,4 +1,4 @@
-// src/pages/doctor/doctor-profile.jsx
+  
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,16 +19,14 @@ export default function DoctorProfile() {
     const nav = useNavigate();
 
     const [loading, setLoading] = React.useState(true);
-
-    // Display-only values
+  
     const [display, setDisplay] = React.useState({
         name: "",
         phone: "",
         email: "",
         avatarUrl: "",
     });
-
-    // Editable form values
+  
     const [form, setForm] = React.useState({
         bio: "",
         slmc: "",
@@ -43,10 +41,9 @@ export default function DoctorProfile() {
     });
 
     const [message, setMessage] = React.useState("");
-
-    // ------------------------------------------------------------
-    // LOAD ONLY CURRENT USER DATA
-    // ------------------------------------------------------------
+  
+  
+  
     React.useEffect(() => {
         async function loadData() {
             try {
@@ -63,8 +60,7 @@ export default function DoctorProfile() {
                 }
 
                 const data = snap.data();
-
-                // LEFT PANEL DISPLAY
+  
                 setDisplay({
                     name: data.name || "Not set",
                     phone: data.phone || "",
@@ -73,8 +69,7 @@ export default function DoctorProfile() {
                         data.avatarUrl ||
                         "https://images.unsplash.com/photo-1606813907291-76a360fcd21d?q=80&w=400",
                 });
-
-                // RIGHT PANEL FORM
+  
                 setForm({
                     bio: data.bio || "",
                     slmc: data.slmc || "",
@@ -97,10 +92,9 @@ export default function DoctorProfile() {
 
         loadData();
     }, []);
-
-    // ------------------------------------------------------------
-    // SAVE PROFILE — ALWAYS FOR LOGGED-IN USER
-    // ------------------------------------------------------------
+  
+  
+  
     async function save() {
         try {
             if (!auth.currentUser) return;
@@ -120,10 +114,9 @@ export default function DoctorProfile() {
             setMessage("Error saving!");
         }
     }
-
-    // ------------------------------------------------------------
-    // AVATAR PREVIEW
-    // ------------------------------------------------------------
+  
+  
+  
     function onAvatarChange(e) {
         const file = e.target.files?.[0];
         if (!file) return;
@@ -133,10 +126,9 @@ export default function DoctorProfile() {
             setDisplay((d) => ({ ...d, avatarUrl: String(reader.result) }));
         reader.readAsDataURL(file);
     }
-
-    // ------------------------------------------------------------
-    // LANGUAGES
-    // ------------------------------------------------------------
+  
+  
+  
     function addLanguage() {
         const v = prompt("Add language:");
         if (!v) return;
@@ -160,10 +152,9 @@ export default function DoctorProfile() {
             </div>
         );
     }
-
-    // ------------------------------------------------------------
-    // FULL UI (UNCHANGED)
-    // ------------------------------------------------------------
+  
+  
+  
     return (
         <div
             className="h-screen w-screen overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat"
@@ -179,7 +170,7 @@ export default function DoctorProfile() {
                 .area-scroll::-webkit-scrollbar-thumb{background:#9ec3ff;border-radius:9999px}
             `}</style>
 
-            {/* NAV */}
+             
             <header className="shrink-0 flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -192,14 +183,14 @@ export default function DoctorProfile() {
                 </button>
             </header>
 
-            {/* MAIN */}
+             
             <main className="flex-1 min-h-0 px-8 pb-4">
                 <div className="h-full w-full flex flex-col">
                     <div className="flex-1 min-h-0 rounded-[22px] p-1 bg-gradient-to-br from-sky-white/70 via-white-900/70 to-[#ffffff]">
                         <div className="soft-glass h-full rounded-[18px] p-6 text-white overflow-hidden">
                             <div className="grid h-full min-h-0 grid-cols-1 lg:grid-cols-[340px_1fr] gap-6">
 
-                                {/* LEFT PANEL */}
+                                 
                                 <section className="panel-glass rounded-2xl p-6 flex flex-col items-center justify-center">
 
                                     <div className="relative">
@@ -233,13 +224,13 @@ export default function DoctorProfile() {
                                     <div className="text-slate-300 text-center">{display.email}</div>
                                 </section>
 
-                                {/* RIGHT PANEL */}
+                                 
                                 <section className="min-h-0 flex flex-col">
                                     <div className="area-scroll min-h-0 flex-1 overflow-y-auto pr-1">
 
                                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 pb-2">
 
-                                            {/* COLUMN 1 */}
+                                             
                                             <div className="panel-glass rounded-2xl p-5">
                                                 <div className="space-y-4">
 
@@ -295,7 +286,7 @@ export default function DoctorProfile() {
                                                 </div>
                                             </div>
 
-                                            {/* COLUMN 2 */}
+                                             
                                             <div className="panel-glass rounded-2xl p-5">
                                                 <div className="space-y-5">
 
@@ -327,7 +318,7 @@ export default function DoctorProfile() {
                                                         </div>
                                                     </div>
 
-                                                    {/* Visiting Hours */}
+                                                     
                                                     <div>
                                                         <div className="text-[15px] font-semibold mb-1.5">
                                                             Visiting Hours
@@ -382,7 +373,7 @@ export default function DoctorProfile() {
                                                         </div>
                                                     </div>
 
-                                                    {/* Languages */}
+                                                     
                                                     <div>
                                                         <div className="flex items-center gap-2 mb-1.5">
                                                             <div className="font-semibold text-[15px]">
@@ -425,7 +416,7 @@ export default function DoctorProfile() {
                         </div>
                     </div>
 
-                    {/* Save Buttons */}
+                     
                     <div className="flex justify-end gap-3 pt-3 text-white">
                         <button
                             onClick={() => window.location.reload()}

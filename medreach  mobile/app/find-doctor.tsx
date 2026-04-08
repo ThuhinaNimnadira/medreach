@@ -1,4 +1,4 @@
-// app/find-doctor.tsx
+  
 import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
@@ -25,8 +25,7 @@ const TEAL = "#1FD4C2";
 const TEAL_DARK = "#0CBFB0";
 const BORDER = "#E9EEF3";
 const MUTED = "#6B7280";
-
-// ---- Mock doctors (replace with Firebase later) ----
+  
 const ALL_DOCTORS: Doctor[] = [
   {
     id: "1",
@@ -108,8 +107,7 @@ export default function FindDoctor() {
 
   const [sortMode, setSortMode] = useState<SortMode>("specialty");
   const [visibleDoctors, setVisibleDoctors] = useState<Doctor[]>([]);
-
-  // Filter + sort (no search)
+  
   const applyFilter = () => {
     let filtered = ALL_DOCTORS.filter((d) => d.category === selected);
 
@@ -122,11 +120,10 @@ export default function FindDoctor() {
 
     setVisibleDoctors(filtered);
   };
-
-  // Run once on mount and whenever selected/sortMode changes
+  
   useEffect(() => {
     applyFilter();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [selected, sortMode]);
 
   const chooseSpecialty = (sp: string) => {
@@ -150,7 +147,7 @@ export default function FindDoctor() {
         contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled"
       >
-        {/* Top bar */}
+         
         <View style={styles.topRow}>
           <Pressable onPress={() => router.back()} hitSlop={8}>
             <Ionicons name="chevron-back" size={24} color={NAVY} />
@@ -159,7 +156,7 @@ export default function FindDoctor() {
           <View style={{ width: 24 }} />
         </View>
 
-        {/* Select Specialty pill */}
+         
         <Text style={styles.label}>Select Specialty</Text>
         <Pressable style={styles.select} onPress={() => setOpenPicker(true)}>
           <FontAwesome5 name="stethoscope" size={16} color="#fff" style={{ marginRight: 10 }} />
@@ -167,7 +164,7 @@ export default function FindDoctor() {
           <Ionicons name="chevron-down" size={18} color="#fff" />
         </Pressable>
 
-        {/* Find button (kept for UX, but filtering already reacts to changes) */}
+         
         <Pressable
           style={({ pressed }) => [
             styles.findBtn,
@@ -178,7 +175,7 @@ export default function FindDoctor() {
           <Text style={styles.findTxt}>Find</Text>
         </Pressable>
 
-        {/* Section title + sort options */}
+         
         <Text style={[styles.label, { marginTop: 16 }]}>Find a Doctor</Text>
         <View style={styles.sortRow}>
           <Text style={styles.sortLabel}>Sort by:</Text>
@@ -218,7 +215,7 @@ export default function FindDoctor() {
           </View>
         </View>
 
-        {/* Doctors list */}
+         
         <View style={{ gap: 18 }}>
           {visibleDoctors.map((d) => (
             <DoctorRow
@@ -232,7 +229,7 @@ export default function FindDoctor() {
         <View style={{ height: 24 }} />
       </ScrollView>
 
-      {/* Specialty picker modal */}
+       
       <Modal
         visible={openPicker}
         transparent
@@ -286,12 +283,12 @@ function DoctorRow({
 }) {
   return (
     <View style={styles.row}>
-      {/* Avatar */}
+       
       <View style={styles.avatar}>
         <FontAwesome5 name="user-md" size={28} color={TEAL} />
       </View>
 
-      {/* Name + specialty + buttons */}
+       
       <View style={{ flex: 1 }}>
         <View style={styles.rowTop}>
           <View style={{ flex: 1 }}>
@@ -299,7 +296,7 @@ function DoctorRow({
             <Text style={styles.docSub}>{doctor.specialty}</Text>
           </View>
 
-          {/* Info button */}
+           
           <Pressable
             style={({ pressed }) => [
               styles.infoChip,
@@ -311,7 +308,7 @@ function DoctorRow({
           </Pressable>
         </View>
 
-        {/* Make Appointment button */}
+         
         <Pressable
           style={({ pressed }) => [
             styles.apptBtn,
@@ -325,8 +322,7 @@ function DoctorRow({
     </View>
   );
 }
-
-// ---------- styles ----------
+  
 const styles = StyleSheet.create({
   scroll: {
     paddingHorizontal: 20,

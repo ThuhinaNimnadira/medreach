@@ -85,7 +85,7 @@ export default function LabDashboard() {
                                         <div className="text-[15px] font-semibold text-[#0C164F]">{r.patientName}</div>
                                         <div className="text-sm text-gray-600">{r.date}</div>
                                     </div>
-                                    {/* 🔗 public link */}
+                                     
                                     <Link to={`/report/${encodeURIComponent(r.publicId)}`} className="px-4 py-1 rounded-full border border-[#0C164F] text-[#0C164F] text-sm hover:bg-[#0C164F] hover:text-white transition">Info</Link>
                                 </div>
                             ))}

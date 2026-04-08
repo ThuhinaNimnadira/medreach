@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
 
-/* --------------------------- tiny local store --------------------------- */
+  
 const LS_KEY = "reception_notifications_v1";
 
 function seed() {
@@ -29,7 +29,7 @@ function writeAll(list) {
     } catch {}
 }
 
-/* ------------------------------ utilities ------------------------------ */
+  
 function timeAgo(ts) {
     const s = Math.max(1, Math.floor((Date.now() - ts) / 1000));
     if (s < 60) return `${s}s ago`;
@@ -48,7 +48,7 @@ function isToday(ts) {
         d.getDate() === t.getDate();
 }
 
-/* --------------------------------- UI ---------------------------------- */
+  
 export default function ReceptionNotifications() {
     const nav = useNavigate();
     const [items, setItems] = React.useState(() => readAll());
@@ -77,7 +77,7 @@ export default function ReceptionNotifications() {
         <div className="min-h-screen "
              style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Navbar (compact) */}
+             
             <header className="flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -90,10 +90,10 @@ export default function ReceptionNotifications() {
                 </button>
             </header>
 
-            {/* card */}
+             
             <main className="px-6 md:px-10 pb-10 pt-10">
                 <div className="mx-auto max-w-[1040px] rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.25)] flex flex-col">
-                    {/* header row */}
+                     
                     <div className="flex items-center justify-between p-5 pb-3">
                         <h1 className="text-xl font-semibold">Notifications</h1>
                         <div className="flex gap-2">
@@ -113,9 +113,9 @@ export default function ReceptionNotifications() {
                     </div>
                     <hr className="border-gray-200" />
 
-                    {/* list area */}
+                     
                     <div className="max-h-[520px] overflow-auto p-5">
-                        {/* Today */}
+                         
                         {today.length > 0 && (
                             <>
                                 <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">Today</div>
@@ -155,7 +155,7 @@ export default function ReceptionNotifications() {
                             </>
                         )}
 
-                        {/* Earlier */}
+                         
                         {earlier.length > 0 && (
                             <>
                                 <div className="text-xs uppercase tracking-wide text-gray-500 mb-2">Earlier</div>

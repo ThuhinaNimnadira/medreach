@@ -1,4 +1,4 @@
-// src/pages/lab/lab-report-public.jsx
+  
 import React from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { findReportByPublicId } from "../../data/lab-reports.store.js";
@@ -33,8 +33,7 @@ export default function LabReportPublic() {
             </div>
         );
     }
-
-    // Normalize fields so it works with either key naming used by the editor/store
+  
     const patientName = rep.patientName || "Username";
     const testName = rep.testName || "test type";
     const date = rep.date || "11/11/1111";
@@ -53,7 +52,7 @@ export default function LabReportPublic() {
         .mint-border { border-color: rgba(74,222,128,.55); }
       `}</style>
 
-            {/* Header (fixed) */}
+
             <header className="shrink-0 flex items-center justify-between px-10 py-3">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-9" />
@@ -66,13 +65,13 @@ export default function LabReportPublic() {
                 </button>
             </header>
 
-            {/* Main (fills remaining height) */}
+             
             <main className="flex-1 min-h-0 px-8 pb-6 pt-2">
                 <div className="h-full mx-auto max-w-[1200px] rounded-[22px] p-1 bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                     <div className="soft-glass h-full rounded-[18px] p-6 text-white">
-                        {/* Three fixed-height columns; only right content scrolls */}
+                         
                         <div className="grid h-full min-h-0 gap-5 grid-cols-1 lg:grid-cols-[300px_320px_1fr]">
-                            {/* LEFT: Patient */}
+                             
                             <section className="panel-glass rounded-2xl p-6 flex flex-col items-center justify-center">
                                 <div className="h-28 w-28 rounded-full overflow-hidden ring-2 ring-white/15">
                                     <img src={avatar} alt="avatar" className="h-full w-full object-cover" />
@@ -88,7 +87,7 @@ export default function LabReportPublic() {
                                 )}
                             </section>
 
-                            {/* MIDDLE: Info */}
+                             
                             <section className="panel-glass rounded-2xl p-5">
                                 <div className="space-y-3">
                                     <div className="text-xl font-extrabold">info</div>
@@ -115,11 +114,11 @@ export default function LabReportPublic() {
                                 </div>
                             </section>
 
-                            {/* RIGHT: Report info (scrollable body) */}
+                             
                             <section className="panel-glass rounded-2xl p-5 flex flex-col min-h-0 overflow-hidden">
                                 <div className="text-2xl font-extrabold mb-2">Report info</div>
 
-                                {/* Small identifiers row (read-only) */}
+                                 
                                 <div className="grid gap-3 grid-cols-1 md:grid-cols-3 mb-2">
                                     <div className="rounded-lg bg-white/5 border border-white/15 px-3 py-2">
                                         <div className="text-[11px] text-blue-100/70">Patient</div>
@@ -135,9 +134,9 @@ export default function LabReportPublic() {
                                     </div>
                                 </div>
 
-                                {/* Scrollable content area */}
+                                 
                                 <div className="flex-1 min-h-0 overflow-auto pr-2 space-y-4">
-                                    {/* Notes */}
+                                     
                                     {notes && (
                                         <div>
                                             <div className="text-sm text-blue-100/90 mb-1">Notes</div>
@@ -147,7 +146,7 @@ export default function LabReportPublic() {
                                         </div>
                                     )}
 
-                                    {/* Images */}
+                                     
                                     {images.length > 0 && (
                                         <div>
                                             <div className="text-sm text-blue-100/90 mb-1">Images</div>
@@ -173,7 +172,7 @@ export default function LabReportPublic() {
                                     )}
                                 </div>
 
-                                {/* No actions here — view-only */}
+                                 
                             </section>
                         </div>
                     </div>

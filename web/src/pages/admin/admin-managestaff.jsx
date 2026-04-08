@@ -1,4 +1,4 @@
-// src/pages/admin/admin-managestaff.jsx
+  
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, query, getDocs, orderBy, deleteDoc, doc, onSnapshot } from "firebase/firestore";
@@ -9,8 +9,7 @@ import logo from "../../assets/3 - Copy.png";
 const ROLES = ["doctor", "receptionist", "admin", "lab", "pharmacist"];
 const DEFAULT_AVATAR =
     "https://images.unsplash.com/photo-1606813907291-76a360fcd21d?q=80&w=200&auto=format&fit=crop";
-
-// ---- Small UI bits ----
+  
 function InfoIcon() {
     return (
         <span className="inline-flex items-center justify-center h-7 w-7 rounded-full border-2 border-[#0E1A33] text-[#0E1A33] font-semibold">
@@ -41,16 +40,14 @@ function Magnifier() {
 
 export default function AdminManageStaff() {
     const nav = useNavigate();
-
-    // state
+  
     const [staff, setStaff] = React.useState([]);
     const [q, setQ] = React.useState("");
     const [roleFilter, setRoleFilter] = React.useState("all");
     const [sort, setSort] = React.useState("name-asc"); // "name-asc" | "newest" | "oldest"
     const [page, setPage] = React.useState(1);
     const perPage = 5;
-
-    // fetch real staff from Firestore (real-time updates)
+  
     React.useEffect(() => {
         const staffCol = collection(db, "users");
         const qSnap = query(staffCol, orderBy("createdAt", "desc"));
@@ -68,8 +65,7 @@ export default function AdminManageStaff() {
 
         return () => unsubscribe();
     }, []);
-
-    // derived
+  
     const filtered = React.useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = staff.filter((s) => {
@@ -104,8 +100,7 @@ export default function AdminManageStaff() {
     React.useEffect(() => {
         setPage(1);
     }, [q, roleFilter, sort]);
-
-    // delete staff from Firestore
+  
     async function deleteStaff(id) {
         const s = staff.find((x) => x.id === id);
         if (!s) return;
@@ -154,15 +149,15 @@ export default function AdminManageStaff() {
                 </button>
             </header>
 
-            {/* Main card */}
+             
             <main className="px-6 md:px-10 pb-10 pt-10">
                 <div className="mx-auto max-w-[1040px] max-h-[560px] overflow-hidden rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.25)] flex flex-col">
-                    {/* Header row inside card */}
+                     
                     <div className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
                         <h1 className="text-xl font-semibold">Staff</h1>
 
                         <div className="flex flex-wrap items-center gap-3">
-                            {/* search */}
+                             
                             <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2">
                   <Magnifier />
@@ -175,7 +170,7 @@ export default function AdminManageStaff() {
                                 />
                             </div>
 
-                            {/* ROLE FILTER */}
+                             
                             <select
                                 value={roleFilter}
                                 onChange={(e) => setRoleFilter(e.target.value)}
@@ -190,7 +185,7 @@ export default function AdminManageStaff() {
                                 ))}
                             </select>
 
-                            {/* SORT */}
+                             
                             <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm">
                                 <label className="mr-1 text-gray-500">Sort by :</label>
                                 <select
@@ -208,7 +203,7 @@ export default function AdminManageStaff() {
 
                     <hr className="border-gray-200" />
 
-                    {/* List */}
+                     
                     <div className="flex-1 overflow-auto">
                         <ul className="divide-y divide-gray-200">
                             {pageData.map((s) => (
@@ -256,7 +251,7 @@ export default function AdminManageStaff() {
                         </ul>
                     </div>
 
-                    {/* Footer */}
+                     
                     <div className="flex items-center justify-between gap-3 px-5 py-4">
                         <button
                             onClick={() => nav("/admin/staff/new")}

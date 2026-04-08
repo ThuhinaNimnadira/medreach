@@ -1,4 +1,4 @@
-// src/pages/admin/admin-settings.jsx
+  
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase"; // make sure this points to your firebase.js
 import { doc, getDoc, updateDoc } from "firebase/firestore";
@@ -7,8 +7,7 @@ import { Bell } from "lucide-react";
 import "./../admin.css";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
-
-// icons
+  
 const Eye = ({ off }) => (
     <svg viewBox="0 0 24 24" className="h-5 w-5">
         <path
@@ -50,8 +49,7 @@ export default function AdminSettings() {
     const [confirm, setConfirm] = useState("");
     const [show, setShow] = useState({ curr: false, next: false, confirm: false });
     const [savingPass, setSavingPass] = useState(false);
-
-    // Fetch admin profile from Firestore
+  
     useEffect(() => {
         async function fetchAdmin() {
             const docRef = doc(db, "users", ADMIN_DOC_ID);
@@ -130,7 +128,7 @@ export default function AdminSettings() {
                 <h1 className="text-[32px] md:text-[36px] font-semibold text-2xl text-[#ffffff] mb-5 ml-27">Settings</h1>
 
                 <div className="mx-auto max-w-[980px] grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
-                    {/* Profile form */}
+                     
                     <form onSubmit={onSaveProfile} className="rounded-2xl bg-white p-5 md:p-6 shadow">
                         <h2 className="text-xl font-semibold text-[#0E1A33] text-center md:text-left mb-5">Profile info</h2>
 
@@ -188,7 +186,7 @@ export default function AdminSettings() {
                         {msg && <div className="mt-2 text-center text-sm text-emerald-600">{msg}</div>}
                     </form>
 
-                    {/* Change password form */}
+                     
                     <form onSubmit={onSavePassword} className="rounded-2xl bg-white shadow p-5 md:p-6">
                         <h2 className="text-xl font-semibold text-[#0E1A33] text-center md:text-left mb-5">Change password</h2>
 

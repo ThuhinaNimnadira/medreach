@@ -6,7 +6,7 @@ import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
 
 
-/* Small clipboard glyph to match the rest of the UI */
+  
 const ClipboardIcon = ({ className = "w-7 h-7" }) => (
     <svg viewBox="0 0 24 24" className={className}>
         <path
@@ -21,10 +21,9 @@ const ClipboardIcon = ({ className = "w-7 h-7" }) => (
 );
 
 export default function ReceptionDashboard() {
-    // Load all appointments (from the same local store used elsewhere)
+  
     const appts = React.useMemo(() => loadAppts(), []);
-
-    // Only show upcoming (scheduled) in the right card
+  
     const upcoming = React.useMemo(
         () =>
             appts
@@ -43,7 +42,7 @@ export default function ReceptionDashboard() {
         <div className="h-screen flex flex-col overflow-hidden"
              style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Thin, rounded scrollbar for the right list */}
+             
             <style>{`
         .docs-scroll { scrollbar-width: thin; scrollbar-color: #0C164F #EEF0FF; }
         .docs-scroll::-webkit-scrollbar { width: 10px; }
@@ -51,7 +50,7 @@ export default function ReceptionDashboard() {
         .docs-scroll::-webkit-scrollbar-thumb { background: #0C164F; border-radius: 9999px; }
       `}</style>
 
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4 shrink-0">
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
@@ -85,9 +84,9 @@ export default function ReceptionDashboard() {
                 </nav>
             </header>
 
-            {/* Main */}
+             
             <main className="flex flex-1 min-h-0 px-12 py-10 gap-8">
-                {/* Left column: greeting + what's new */}
+                 
                 <aside className="w-[255px] h-[273px]">
                     <h1 className="text-2xl font-bold mb-2 text-white">
                         Hello,
@@ -110,9 +109,9 @@ export default function ReceptionDashboard() {
                     </div>
                 </aside>
 
-                {/* Middle + Right cards */}
+                 
                 <section className="flex-1 grid grid-cols-2 gap-8 min-h-0">
-                    {/* New appointments (middle) */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-10 flex flex-col justify-between w-[439px] h-[400px]">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
@@ -130,7 +129,7 @@ export default function ReceptionDashboard() {
                         </Link>
                     </div>
 
-                    {/* Upcoming appointments (right) — only the list scrolls */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-10 w-[439px] h-[400px] flex flex-col overflow-hidden">
                         <div className="shrink-0">
                             <h3 className="text-3xl font-bold mb-2 text-[#0C164F]">Upcoming appointments</h3>

@@ -4,12 +4,12 @@ import logo from "../assets/3 - Copy.png";
 export default function Navbar() {
     return (
         <header className="flex justify-between items-center px-12 py-6">
-            {/* Logo */}
+             
             <div className="flex items-center gap-3 mr-10">
                 <img src={logo} alt="MedReach" className="h-10 mr-6" />
             </div>
 
-            {/* Links */}
+             
             <nav className="flex items-center gap-1 text-[#FFFFFF] font-medium">
                 <Link
                     to="/"

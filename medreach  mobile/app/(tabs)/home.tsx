@@ -1,4 +1,4 @@
-// app/(tabs)/home.tsx
+  
 import React from "react";
 import {
   View,
@@ -15,11 +15,11 @@ const NAVY = "#0B1B3A";
 export default function Home() {
   return (
     <View style={styles.container}>
-      {/* Greeting */}
+       
       <Text style={styles.hello}>Hello,</Text>
       <Text style={styles.user}>User !</Text>
 
-      {/* Row 1 */}
+       
       <View style={styles.row}>
         <Tile
           titleTop="Chanel a"
@@ -40,7 +40,7 @@ export default function Home() {
         />
       </View>
 
-      {/* Row 2: wide appointment tile */}
+       
       <Pressable
         style={[styles.tileWide, { backgroundColor: "#0B0D12" }]}
         onPress={() => {
@@ -56,7 +56,7 @@ export default function Home() {
         <Ionicons name="calendar-outline" size={38} color="#1FD4C2" style={{ opacity: 0.9 }} />
       </Pressable>
 
-      {/* Row 3 */}
+       
       <View style={styles.row}>
         <Tile
           titleTop="emergency"
@@ -78,7 +78,7 @@ export default function Home() {
         />
       </View>
 
-      {/* Bottom pill bar */}
+       
       <View className="pillBar" style={styles.pillBar}>
         <Ionicons name="menu" size={24} color={NAVY} />
         <Ionicons name="settings-outline" size={24} color={NAVY} />

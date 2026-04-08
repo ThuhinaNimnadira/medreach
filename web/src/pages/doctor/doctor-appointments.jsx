@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { db } from "../../firebase"; // your existing firebase.js
+import { db } from "../../firebase";
 import {
     collection,
     onSnapshot,
@@ -11,8 +11,7 @@ import {
 } from "firebase/firestore";
 import logo from "../../assets/3 - Copy.png";
 import bg from "../../assets/bgforlandingpage.png";
-
-// ---- Small UI components ----
+  
 function InfoIcon() {
     return (
         <span className="inline-flex items-center justify-center h-7 w-7 rounded-full border-2 border-[#0E1A33] text-[#0E1A33] font-semibold">
@@ -40,8 +39,7 @@ export default function DoctorAppointments() {
     const [sort, setSort] = useState("newest");
     const [page, setPage] = useState(1);
     const perPage = 5;
-
-    // --- Real-time listener to Firestore ---
+  
     useEffect(() => {
         const qRef = query(collection(db, "appointments"), orderBy("createdAt", "desc"));
         const unsubscribe = onSnapshot(qRef, snapshot => {
@@ -49,10 +47,9 @@ export default function DoctorAppointments() {
             setRows(data);
         });
 
-        return () => unsubscribe(); // cleanup on unmount
+        return () => unsubscribe();
     }, []);
-
-    // --- Filter & Sort ---
+  
     const filtered = useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = rows.filter(
@@ -102,8 +99,7 @@ export default function DoctorAppointments() {
         }
         return arr;
     }
-
-    // --- Mark appointment as completed ---
+  
     async function markCompleted(id) {
         const apptRef = doc(db, "appointments", id);
         await updateDoc(apptRef, { status: "completed" });

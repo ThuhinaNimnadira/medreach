@@ -37,14 +37,14 @@ export default function AdminDashboard() {
             className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4 ">
-                {/* Logo */}
+                 
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
                 </div>
 
-                {/* Right side */}
+                 
                 <div className="flex items-center gap-6">
                     <nav className="flex items-center gap-1 text-[#ffffff] font-medium">
                         <Link to="/admin/notifications" className="mt-1" title="Notifications">
@@ -79,9 +79,9 @@ export default function AdminDashboard() {
                 </div>
             </header>
 
-            {/* Main Content */}
+             
             <main className="flex flex-1 px-12 py-10 gap-8">
-                {/* Left sidebar card */}
+                 
                 <aside className="w-[255px] h-[273px]">
                     <h1 className="text-2xl font-bold mb-2">
                         Hello, <br />
@@ -107,9 +107,9 @@ export default function AdminDashboard() {
                     </div>
                 </aside>
 
-                {/* Right side cards */}
+                 
                 <section className="flex-1 grid grid-cols-2 gap-8">
-                    {/* Manage Users */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-15 flex flex-col justify-between w-[439px] h-[400px]">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
@@ -129,7 +129,7 @@ export default function AdminDashboard() {
                         </Link>
                     </div>
 
-                    {/* Offline Health Guide */}
+                     
                     <div className="bg-white rounded-xl shadow-md p-15 flex flex-col justify-between w-[439px] h-[400px]">
                         <div>
                             <div className="w-[100px] h-[100px] bg-indigo-100 rounded-xl flex items-center justify-center mb-6">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, query, orderBy, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../../firebase"; // adjust your path
+import { db } from "../../firebase";
 
 const Magnifier = () => (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-gray-400">
@@ -16,8 +16,7 @@ export default function AdminNotifications() {
     const [sort, setSort] = React.useState("newest"); // newest | oldest | unread
     const [page, setPage] = React.useState(1);
     const perPage = 6;
-
-    // Load notifications from Firestore
+  
     const loadNotifications = async () => {
         const notifCol = collection(db, "notifications");
         const qSnap = query(notifCol, orderBy("createdAt", "desc"));
@@ -27,8 +26,7 @@ export default function AdminNotifications() {
     };
 
     React.useEffect(() => { loadNotifications(); }, []);
-
-    // Filter & sort
+  
     const filtered = React.useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = rows.filter(n => !t || n.title.toLowerCase().includes(t) || n.message.toLowerCase().includes(t));
@@ -46,8 +44,7 @@ export default function AdminNotifications() {
     const pageData = filtered.slice(start, end);
 
     React.useEffect(()=>setPage(1), [q, sort]);
-
-    // Actions
+  
     const onOpen = async (n) => {
         if (n.unread) {
             await updateDoc(doc(db, "notifications", n.id), { unread: false });

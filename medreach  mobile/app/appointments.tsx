@@ -1,4 +1,4 @@
-// app/appointments.tsx
+  
 import React from "react";
 import {
   SafeAreaView,
@@ -20,7 +20,7 @@ export default function AppointmentsScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      {/* Top Bar */}
+       
       <View style={styles.topRow}>
         <Pressable onPress={() => router.back()} hitSlop={10}>
           <Text style={styles.back}>{`«`}</Text>

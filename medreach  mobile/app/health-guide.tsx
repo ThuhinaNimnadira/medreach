@@ -18,10 +18,9 @@ export default function HealthGuideScreen() {
   const [search, setSearch] = useState("");
   const [viewerVisible, setViewerVisible] = useState(false);
   const [selectedGuide, setSelectedGuide] = useState(null);
-
-  // Offline PDFs stored in assets/pdfs
+  
   const healthGuides = [
-    // First Aid
+  
     {
       id: "1",
       title: "First Aid Basics",
@@ -43,8 +42,7 @@ export default function HealthGuideScreen() {
       language: "Tamil",
       file: require("../assets/pdfs/firstAid.pdf"),
     },
-
-    // Diabetes
+  
     {
       id: "4",
       title: "Diabetes Care",
@@ -66,8 +64,7 @@ export default function HealthGuideScreen() {
       language: "Tamil",
       file: require("../assets/pdfs/diabetes.pdf"),
     },
-
-    // Heart Attack
+  
     {
       id: "7",
       title: "Cardiac Emergency",
@@ -90,8 +87,7 @@ export default function HealthGuideScreen() {
       file: require("../assets/pdfs/heartAttack.pdf"),
     },
   ];
-
-  // Filter by language + search
+  
   const filteredFiles = healthGuides.filter((file) => {
     const matchesLanguage = file.language === selectedLanguage;
     const text = search.toLowerCase();
@@ -113,12 +109,12 @@ export default function HealthGuideScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
+       
       <TouchableOpacity style={{ paddingHorizontal: 16, marginTop: 10 }}>
         <Text style={{ fontSize: 20 }}>{"<<"}</Text>
       </TouchableOpacity>
 
-      {/* Logo + Title */}
+       
       <View style={styles.logoWrapper}>
         <Image
           source={{
@@ -129,7 +125,7 @@ export default function HealthGuideScreen() {
         <Text style={styles.title}>Health{"\n"}Guide</Text>
       </View>
 
-      {/* Language Selector */}
+       
       <Text style={styles.sectionLabel}>Select Language</Text>
 
       <View style={styles.languagePickerContainer}>
@@ -145,7 +141,7 @@ export default function HealthGuideScreen() {
         </Picker>
       </View>
 
-      {/* Search Bar */}
+       
       <TextInput
         style={styles.searchBox}
         placeholder="Search health topic"
@@ -157,7 +153,7 @@ export default function HealthGuideScreen() {
         {search ? `Results for "${search}"` : "Results for your search"}
       </Text>
 
-      {/* Grid */}
+       
       <FlatList
         data={filteredFiles}
         numColumns={2}
@@ -177,7 +173,7 @@ export default function HealthGuideScreen() {
         )}
       />
 
-      {/* PDF Viewer */}
+       
       <Modal visible={viewerVisible} animationType="slide">
         <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.pdfHeader}>

@@ -11,10 +11,10 @@ export default function Home() {
         >
 
 
-        <Navbar /> {/* Add the navbar here */}
+        <Navbar />  
 
             <main className="flex flex-1 justify-between items-center px-16 py-12">
-                {/* Left */}
+                 
                 <div className="max-w-md space-y-4">
                     <p className="text-sm font-montserrat font-semibold text-[#FFFFFF]">
                         Your Health, Just A Tap Away.
@@ -31,12 +31,12 @@ export default function Home() {
                     </button>
                 </div>
 
-                {/* Center */}
+                 
                 <div>
                     <img src="/1.png" alt="MedReach Icon" className="w-92" />
                 </div>
 
-                {/* Right */}
+                 
                 <div className="max-w-md text-right space-y-4">
                     <p className="text-sm font-semibold text-[#FFFFFF]">
                         Secure Access For Healthcare Professionals.

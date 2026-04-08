@@ -21,15 +21,13 @@ const InfoIcon = () => (
 
 export default function LabReports() {
     const nav = useNavigate();
-
-    // data + ui state
+  
     const [rows, setRows] = React.useState(() => loadReports());
     const [q, setQ] = React.useState("");
     const [sort, setSort] = React.useState("newest"); // newest | oldest | name-asc
     const [page, setPage] = React.useState(1);
     const perPage = 5;
-
-    // derived: filter + sort
+  
     const filtered = React.useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = rows.filter(
@@ -52,8 +50,7 @@ export default function LabReports() {
             );
         return arr;
     }, [rows, q, sort]);
-
-    // pagination
+  
     const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / perPage));
     const clampedPage = Math.min(page, totalPages);
@@ -93,15 +90,15 @@ export default function LabReports() {
                 </button>
             </header>
 
-            {/* Main card — same dimensions as your other list pages */}
+             
             <main className="px-6 md:px-10 pb-10 pt-10">
                 <div className="mx-auto max-w-[1040px] max-h-[560px] overflow-hidden rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.25)] flex flex-col">
-                    {/* Header row inside card */}
+                     
                     <div className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
                         <h1 className="text-xl font-semibold">Reports</h1>
 
                         <div className="flex flex-wrap items-center gap-3">
-                            {/* search */}
+                             
                             <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2">
                   <Magnifier />
@@ -114,7 +111,7 @@ export default function LabReports() {
                                 />
                             </div>
 
-                            {/* sort */}
+                             
                             <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm">
                                 <label className="mr-1 text-gray-500">Sort by :</label>
                                 <select
@@ -132,35 +129,35 @@ export default function LabReports() {
 
                     <hr className="border-gray-200" />
 
-                    {/* List */}
+                     
                     <div className="flex-1 overflow-auto">
                         <ul className="divide-y divide-gray-200">
                             {pageData.map((r) => (
                                 <li key={r.id} className="flex items-center gap-4 px-5 py-3">
-                                    {/* avatar */}
+                                     
                                     <img
                                         src={r.avatar}
                                         alt={r.patientName}
                                         className="h-9 w-9 rounded-full object-cover"
                                     />
 
-                                    {/* patient */}
+                                     
                                     <div className="w-64 text-gray-900 text-[15px]">
                                         {r.patientName}
                                     </div>
 
-                                    {/* phone */}
+                                     
                                     <div className="w-56 text-gray-700 text-[15px]">{r.phone}</div>
 
-                                    {/* doctor */}
+                                     
                                     <div className="w-56 text-gray-700 text-[15px]">
                                         {r.doctorName}
                                     </div>
 
-                                    {/* date */}
+                                     
                                     <div className="w-28 text-gray-700 text-[15px]">{r.date}</div>
 
-                                    {/* status */}
+                                     
                                     <div
                                         className={`w-28 text-[15px] font-medium ${
                                             r.status === "new" ? "text-green-600" : "text-blue-700"
@@ -169,7 +166,7 @@ export default function LabReports() {
                                         {r.status}
                                     </div>
 
-                                    {/* actions */}
+                                     
                                     <div className="flex items-center gap-3">
                                         <button
                                             title={
@@ -202,7 +199,7 @@ export default function LabReports() {
                         </ul>
                     </div>
 
-                    {/* Footer — “Showing data … of … entries” + pager */}
+                     
                     <div className="flex items-center justify-between gap-3 px-5 py-4 text-sm text-gray-500">
                         <div>
                             Showing data {total === 0 ? 0 : start + 1} to {end} of {total}{" "}

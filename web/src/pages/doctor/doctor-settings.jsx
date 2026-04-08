@@ -1,11 +1,11 @@
-// src/pages/doctor/doctor-settings.jsx
+  
 import React from "react";
 import { Link } from "react-router-dom";
 import { Bell } from "lucide-react";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
 
-/* Small inline icons */
+
 const Eye = ({ off }) => (
     <svg viewBox="0 0 24 24" className="h-5 w-5">
         <path
@@ -25,7 +25,7 @@ const ArrowRight = () => (
     </svg>
 );
 
-/* localStorage helpers so settings persist only for the doctor user locally */
+  
 const LS_KEY = "doctor_settings";
 function loadSettings() {
     try {
@@ -42,14 +42,13 @@ function saveSettings(s) {
 }
 
 export default function DoctorSettings() {
-    // password (UI-only)
+  
     const [curr, setCurr] = React.useState("");
     const [next, setNext] = React.useState("");
     const [confirm, setConfirm] = React.useState("");
     const [show, setShow] = React.useState({ curr: false, next: false, confirm: false });
     const [savingPass, setSavingPass] = React.useState(false);
-
-    // notification toggle (scoped to this doctor in localStorage)
+  
     const [settings, setSettings] = React.useState(() => loadSettings());
     const [msg, setMsg] = React.useState("");
 
@@ -79,7 +78,7 @@ export default function DoctorSettings() {
             className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Top Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-4  shrink-0">
                 <div className="flex items-center gap-3 mr-10">
                     <img src={logo} alt="MedReach" className="h-10 mr-6 mt-2" />
@@ -105,13 +104,13 @@ export default function DoctorSettings() {
                 </div>
             </header>
 
-            {/* Page title */}
+             
             <div className="px-6 md:px-12">
                 <h1 className="text-[44px] font-extrabold text-[#ffffff] mb-6">Settings</h1>
 
-                {/* Two columns */}
+                 
                 <div className="grid gap-8 lg:grid-cols-2">
-                    {/* Left: Change password */}
+                     
                     <form
                         onSubmit={onSavePassword}
                         className="rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.2)] p-6 md:p-8"
@@ -159,9 +158,9 @@ export default function DoctorSettings() {
                         {msg && <div className="mt-3 text-center text-sm text-emerald-600">{msg}</div>}
                     </form>
 
-                    {/* Right: Notifications + Help */}
+                     
                     <section className="rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.2)] p-6 md:p-8">
-                        {/* Enable notifications */}
+                         
                         <div className="border-b border-gray-200 pb-6 mb-6">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -169,7 +168,7 @@ export default function DoctorSettings() {
                                     <div className="text-sm text-gray-500">Receive  notifications</div>
                                 </div>
 
-                                {/* Toggle */}
+                                 
                                 <button
                                     type="button"
                                     onClick={toggleNotif}
@@ -187,7 +186,7 @@ export default function DoctorSettings() {
                             </div>
                         </div>
 
-                        {/* Need Help? */}
+                         
                         <button
                             type="button"
                             onClick={() => (window.location.href = "/contact")}

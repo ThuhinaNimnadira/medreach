@@ -9,14 +9,14 @@ export default function Contact() {
             className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${bg})` }}
         >
-            <Navbar /> {/* Add Navbar here */}
+            <Navbar />  
 
             <div className="relative mx-auto mt-8 rounded-xl px-6 h-[calc(80vh-4rem)] w-[90%] overflow-hidden animated-gradient">
 
-                {/* Inner content */}
+                 
                 <div className="relative flex w-full max-w-6xl justify-between items-center gap-8 px-4 h-full">
 
-                    {/* Left: Info text */}
+                     
                     <div className="flex-1 flex flex-col justify-center items-center p-6 text-left">
                         <h3 className="text-4xl font-poppins font-bold text-white mb-3 text-center">
                             Have Questions? <br/>
@@ -28,7 +28,7 @@ export default function Contact() {
                         </p>
                     </div>
 
-                    {/* Right: Form only */}
+                     
                     <div className="flex-1 flex flex-col justify-center p-6 text-left">
                         <form className="flex flex-col space-y-4">
                             <input

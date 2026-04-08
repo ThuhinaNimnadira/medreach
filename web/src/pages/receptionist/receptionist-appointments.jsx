@@ -4,7 +4,7 @@ import { loadAppts } from "../../data/doctor-appts.store.js";
 import bg from "../../assets/bgforlandingpage.png";
 import logo from "../../assets/3 - Copy.png";
 
-/* UI bits */
+  
 const Magnifier = () => (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-gray-400">
         <path
@@ -22,14 +22,14 @@ const InfoIcon = () => (
 export default function ReceptionAppointments() {
     const nav = useNavigate();
 
-    /* data + ui state */
+      
     const [rows] = React.useState(() => loadAppts());
     const [q, setQ] = React.useState("");
     const [sort, setSort] = React.useState("newest"); // newest | oldest | name-asc
     const [page, setPage] = React.useState(1);
     const perPage = 5;
 
-    /* derived: filter + sort */
+      
     const filtered = React.useMemo(() => {
         const t = q.trim().toLowerCase();
         let arr = rows.filter((r) => {
@@ -48,7 +48,7 @@ export default function ReceptionAppointments() {
         return arr;
     }, [rows, q, sort]);
 
-    /* pagination */
+      
     const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / perPage));
     const clampedPage = Math.min(page, totalPages);
@@ -79,7 +79,7 @@ export default function ReceptionAppointments() {
         <div className="min-h-screen "
              style={{ backgroundImage: `url(${bg})` }}
         >
-            {/* Navbar (compact) */}
+             
             <header className="flex items-center justify-between px-10 py-4">
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="MedReach" className="h-9" />
@@ -92,15 +92,15 @@ export default function ReceptionAppointments() {
                 </button>
             </header>
 
-            {/* Main card — same sizing as your other lists */}
+             
             <main className="px-6 md:px-10 pb-10 pt-10">
                 <div className="mx-auto max-w-[1040px] max-h-[560px] overflow-hidden rounded-2xl bg-white shadow-[0_18px_36px_-18px_rgba(0,0,0,0.25)] flex flex-col">
-                    {/* Header row inside card */}
+                     
                     <div className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
                         <h1 className="text-xl font-semibold">New appointments</h1>
 
                         <div className="flex flex-wrap items-center gap-3">
-                            {/* search */}
+                             
                             <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2">
                   <Magnifier />
@@ -113,7 +113,7 @@ export default function ReceptionAppointments() {
                                 />
                             </div>
 
-                            {/* sort */}
+                             
                             <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm">
                                 <label className="mr-1 text-gray-500">Sort by :</label>
                                 <select
@@ -131,7 +131,7 @@ export default function ReceptionAppointments() {
 
                     <hr className="border-gray-200" />
 
-                    {/* List */}
+                     
                     <div className="flex-1 overflow-auto">
                         <ul className="divide-y divide-gray-200">
                             {pageData.map((a) => {
@@ -140,38 +140,38 @@ export default function ReceptionAppointments() {
 
                                 return (
                                     <li key={a.id} className="flex items-center gap-4 px-5 py-3">
-                                        {/* avatar */}
+                                         
                                         <img
                                             src={a.avatar}
                                             alt={a.patient}
                                             className="h-9 w-9 rounded-full object-cover"
                                         />
 
-                                        {/* patient */}
+                                         
                                         <div className="w-64 text-gray-900 text-[15px]">{a.patient}</div>
 
-                                        {/* phone */}
+                                         
                                         <div className="w-56 text-gray-700 text-[15px]">{a.phone}</div>
 
-                                        {/* doctor name (placeholder if not stored) */}
+                                         
                                         <div className="w-56 text-gray-700 text-[15px]">
                                             {a.doctorName || "Doctorname"}
                                         </div>
 
-                                        {/* date */}
+                                         
                                         <div className="w-28 text-gray-700 text-[15px]">{a.date}</div>
 
-                                        {/* status */}
+                                         
                                         <div className={`w-28 text-[15px] font-medium ${statusColor}`}>
                                             {displayStatus}
                                         </div>
 
-                                        {/* actions */}
+                                         
                                         <div className="flex items-center gap-3">
                                             <button
                                                 title="Info"
                                                 onClick={() => {
-                                                    // Reception flow: completed -> completed info, else -> payable/proceed
+  
                                                     const base = "/reception/appointments";
                                                     const path =
                                                         a.status === "completed"
@@ -196,7 +196,7 @@ export default function ReceptionAppointments() {
                         </ul>
                     </div>
 
-                    {/* Footer — pager */}
+                     
                     <div className="flex items-center justify-between gap-3 px-5 py-4 text-sm text-gray-500">
                         <div>
                             Showing data {total === 0 ? 0 : start + 1} to {end} of {total} entries

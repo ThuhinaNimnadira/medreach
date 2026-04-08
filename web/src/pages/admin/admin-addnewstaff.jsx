@@ -43,15 +43,14 @@ export default function AdminAddNewStaff() {
         if (!validate()) return;
 
         try {
-            // 1️⃣ Create staff in Firebase Auth
+  
             const userCredential = await createUserWithEmailAndPassword(
                 auth,
                 form.email,
                 form.password
             );
             const user = userCredential.user;
-
-            // 2️⃣ Create user document in Firestore
+  
             await setDoc(doc(db, "users", user.uid), {
                 name: form.username,
                 email: form.email,
@@ -60,10 +59,9 @@ export default function AdminAddNewStaff() {
             });
 
             setSubmitted(true);
-
-            // Optional: reset form or navigate after creation
+  
             setForm({ username: "", email: "", role: "", password: "", confirm: "" });
-            // nav("/staff"); // if you have a staff list page
+  
         } catch (error) {
             console.error(error);
             setErrors({ firebase: error.message });
@@ -83,7 +81,7 @@ export default function AdminAddNewStaff() {
                     <p className="text-slate-300 mt-1">Create a staff account </p>
 
                     <form onSubmit={onSubmit} className="mt-8 grid gap-4 md:grid-cols-2">
-                        {/* left column */}
+                         
                         <div className="space-y-4">
                             <div>
                                 <input
@@ -128,7 +126,7 @@ export default function AdminAddNewStaff() {
                             </div>
                         </div>
 
-                        {/* right column */}
+                         
                         <div className="space-y-4">
                             <div>
                                 <select

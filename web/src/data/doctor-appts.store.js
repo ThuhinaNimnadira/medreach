@@ -1,4 +1,4 @@
-// src/data/doctor-appts.store.js
+  
 const KEY = "mr_doctor_appts_v1";
 
 export const AVATAR_URL =
@@ -32,7 +32,7 @@ export function loadAppts() {
     if (raw) {
         try {
             const arr = JSON.parse(raw);
-            // rehydrate createdAt
+  
             return arr.map((a) => ({ ...a, createdAt: new Date(a.createdAt) }));
         } catch {}
     }

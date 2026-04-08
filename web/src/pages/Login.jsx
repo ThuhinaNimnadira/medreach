@@ -11,22 +11,20 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-
-    // Firebase Login Function
+  
     const handleLogin = async (e) => {
         e.preventDefault();
         setErrorMsg("");
 
         try {
-            // 1️⃣ Login with email/password
+  
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
             const user = userCredential.user;
-
-            // 2️⃣ Fetch user role from Firestore (users collection)
+  
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
 
@@ -36,8 +34,7 @@ export default function Login() {
             }
 
             const role = docSnap.data().role;
-
-            // 3️⃣ Redirect user based on role
+  
             if (role === "admin") {
                 window.location.href = "/admin/dashboard";
             }
@@ -72,12 +69,12 @@ export default function Login() {
             <div className="flex justify-center items-center flex-1 ">
                 <div className="flex w-full max-w-6xl justify-center items-center gap-30 px-4">
 
-                    {/* Left: Logo */}
+                     
                     <div className="flex-1 flex justify-center items-center max-w-94">
                         <img src="/1.png" alt="Logo" className="h-92 w-auto" />
                     </div>
 
-                    {/* Right: Sign In Form */}
+                     
                     <div className="flex-1 flex flex-col justify-center p-6 text-left max-w-md w-full mb-12">
                         <h2 className="text-3xl font-poppins font-bold text-white mb-6">
                             Sign In
@@ -85,7 +82,7 @@ export default function Login() {
 
                         <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
 
-                            {/* Email */}
+                             
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -95,7 +92,7 @@ export default function Login() {
                                 required
                             />
 
-                            {/* Password */}
+                             
                             <div className="relative">
                                 <input
                                     type={showPassword ? "text" : "password"}
@@ -114,19 +111,19 @@ export default function Login() {
                                 </button>
                             </div>
 
-                            {/* Forgot Password */}
+                             
                             <div className="flex justify-end">
                                 <a href="#" className="text-gray-400 text-sm hover:underline">
                                     Forgot password?
                                 </a>
                             </div>
 
-                            {/* Error Msg */}
+                             
                             {errorMsg && (
                                 <p className="text-red-400 text-sm">{errorMsg}</p>
                             )}
 
-                            {/* Login Button */}
+                             
                             <button
                                 type="submit"
                                 className="w-full bg-[#0C164F] text-white px-6 py-2 rounded-md font-semibold hover:bg-[#40E0D0] hover:text-black hover:scale-105 transition-all duration-300"

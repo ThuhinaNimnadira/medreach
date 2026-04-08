@@ -1,4 +1,4 @@
-// src/pages/admin/admin-staffinfo.jsx
+  
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
@@ -19,8 +19,7 @@ export default function AdminStaffInfo() {
     const [deleting, setDeleting] = React.useState(false);
 
     const ROLES = ["doctor", "receptionist", "admin", "lab", "pharmacist"];
-
-    // Fetch staff info from Firestore
+  
     React.useEffect(() => {
         const fetchStaff = async () => {
             setLoading(true);
@@ -50,8 +49,7 @@ export default function AdminStaffInfo() {
         };
         fetchStaff();
     }, [id, nav]);
-
-    // Change role in Firestore
+  
     const onChangeRole = async () => {
         const nextRole = prompt(
             `Enter new role for ${staff.name}:\nOptions: ${ROLES.join(", ")}`,
@@ -75,8 +73,7 @@ export default function AdminStaffInfo() {
             setUpdatingRole(false);
         }
     };
-
-    // Delete staff from Firestore
+  
     const onDelete = async () => {
         if (!window.confirm(`Delete ${staff.name}? This action cannot be undone.`)) return;
         try {
@@ -101,7 +98,7 @@ export default function AdminStaffInfo() {
 
     return (
         <div className="h-screen w-screen overflow-hidden bg-white flex flex-col">
-            {/* Navbar */}
+             
             <header className="flex justify-between items-center px-12 py-6">
                 <div className="flex items-center gap-3">
                     <img src="/3.png" alt="MedReach" className="h-10" />
@@ -114,14 +111,14 @@ export default function AdminStaffInfo() {
                 </button>
             </header>
 
-            {/* Content */}
+             
             <div className="px-10 pb-10 h-[calc(100vh-96px)] min-h-0">
                 <div className="h-full rounded-[28px] p-1 bg-gradient-to-br from-sky-800/70 via-blue-900/70 to-[#0d1b2a]">
                     <div className="h-full rounded-[24px] bg-[#0f2139]/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]">
                         <div className="h-full rounded-[20px] border border-white/10 bg-white/5 p-8 md:p-14 text-white">
                             <div className="h-full w-full flex items-center justify-center">
                                 <div className="flex flex-wrap items-center justify-center gap-30">
-                                    {/* Left: avatar + role + email */}
+                                     
                                     <div className="flex flex-col items-center text-center">
                                         <img
                                             src={staff.avatar}
@@ -134,7 +131,7 @@ export default function AdminStaffInfo() {
                                         <div className="mt-3 text-white/90">{staff.email}</div>
                                     </div>
 
-                                    {/* Right: actions */}
+                                     
                                     <div className="w-full sm:w-auto grid gap-4">
                                         <button
                                             onClick={onChangeRole}

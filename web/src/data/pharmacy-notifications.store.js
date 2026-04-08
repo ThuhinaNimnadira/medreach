@@ -1,5 +1,5 @@
-// src/data/pharmacy-notifications.store.js
-// Local (demo) notifications store for Pharmacy
+  
+  
 
 const LS_KEY = "pharmacy_notifications_v1";
 
